@@ -44,7 +44,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 const listOfOptions = listOfOptionsConst;
 
 
-const defaultOption = 'Port';
+const defaultOption = 'CMR';
 
 const drawerWidth = config.showDrawerIcons ? 200 : 180;
 
