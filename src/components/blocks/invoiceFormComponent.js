@@ -14,6 +14,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import AddIcon from '@material-ui/icons/Add';
 import ListOfPurposesOfCalls from '../../config/consts/listOfPurposesOfCallsConst';
 import ListOfPorts from '../../config/JSON/listOfPorts'
+import ListOfCountries from '../../data/countries'
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -51,6 +52,45 @@ function PortForm({data, updateData, locationNumber}) {
         <Typography variant="h5" component="h5" gutterBottom style={{marginTop: '30px'}}>
             Sender details
         </Typography>
+
+        <Grid container justify={'space-between'}>
+
+            <TextField
+                label="ID:"
+                value={data.id}
+                onChange={(e) => updateData({id: e.target.value})}
+                variant="outlined"
+            />
+
+            <TextField
+                label="Name:"
+                value={data.name}
+                onChange={(e) => updateData({name: e.target.value})}
+                variant="outlined"
+            />
+
+            <FormControl
+                variant="outlined"
+                className={classes.formControlNoMargin}
+            >
+                <InputLabel id="departure-arrival-label">Language</InputLabel>
+
+                <Select
+                    labelId="departure-arrival-label"
+                    value={data.language}
+                    onChange={(e) => {
+                        updateData({language: e.target.value})
+                    }}
+                >
+                    {ListOfPorts.map((port, index) =>
+                        <MenuItem key={index} value={`${port.code}`}>
+                            {`${port.code} - ${port.countryCode} - ${port.name}`}
+                        </MenuItem>
+                    )}
+                </Select>
+            </FormControl>
+
+        </Grid>
 
     </>
 }
