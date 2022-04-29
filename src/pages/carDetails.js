@@ -97,13 +97,13 @@ function CarDetails({history}) {
     //     let imo = MainPageInfo[locationNumber].imo;
     //     let ship = MainPageInfo[locationNumber].ship;
     //
-    //     const def = defaultDataConst;
+        const def = defaultDataConst;
     //     def.port.portOfCall = portOfCall;
     //     def.port.ETAPortOfCall = eta;
     //     def.port.agent.company = companyName;
     //     def.ship.name = ship;
     //     def.ship.IMOnumber = imo;
-    //     return def
+        return def
     });
     const [openErrorDialog, setOpenErrorDialog] = useState({open: false, error: {}});
     const [uploadAnchorEl, setUploadAnchorEl] = React.useState(null);
@@ -213,33 +213,13 @@ function CarDetails({history}) {
                                     reader.onload = (() => {
                                         try {
                                             let {
-                                                port,
-                                                crew,
-                                                ship,
-                                                passengers,
-                                                voyage,
-                                                shipStores,
-                                                health,
-                                                crewEffects,
-                                                cargo,
-                                                dpg,
-                                                waste
+                                                cmr,
                                             } = readXML(reader.result);
                                             let dataCopy = JSON.parse(JSON.stringify(data));
 
                                             setData({
                                                 ...dataCopy, ...{
-                                                    port,
-                                                    crew,
-                                                    ship,
-                                                    passengers,
-                                                    voyage,
-                                                    shipStores,
-                                                    health,
-                                                    crewEffects,
-                                                    cargo,
-                                                    dpg,
-                                                    waste
+                                                    cmr,
                                                 }
                                             });
                                         } catch (e) {
@@ -365,8 +345,8 @@ function getChildComponent(activeItem, [data, setData]) {
     switch (selectedItem) {
         case 'cmr':
             //@FIXME make it as a better function
-            return <CMRFormComponent data={[]} updateData={(dataItem) => {
-                setData({...data});
+            return <CMRFormComponent data={[data.cmr]} updateData={(dataItem) => {
+                setData({...data, cmr: {...data.cmr, ...dataItem}})
             }}/>
     //     case 'ships':
     //         return <ShipFormComponent data={data.ship} updateData={(dataItem) => {
