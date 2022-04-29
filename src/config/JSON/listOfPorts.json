@@ -1,0 +1,63 @@
+[
+    {
+    "code": "BGVAR",
+    "countryCode": "BG",
+    "name": "Varna"
+  },
+  {
+    "code": "BZBZE",
+    "countryCode": "BZ",
+    "name": "Belize City"
+  },
+  {
+    "code": "GEPTI",
+    "countryCode": "GE",
+    "name": "Poti"
+  },
+  
+  {
+    "code": "ROCND",
+    "countryCode": "RO",
+    "name": "Constanta"
+  },
+  {
+    "code": "TRAMR",
+    "countryCode": "TR",
+    "name": "Ambarli"
+  },
+  {
+    "code": "TREYP",
+    "countryCode": "TR",
+    "name": "Evyap Port"
+  },
+  {
+    "code": "TRIST",
+    "countryCode": "TR",
+    "name": "Istanbul"
+  },
+  {
+    "code": "TRIZM",
+    "countryCode": "TR",
+    "name": "Izmir1"
+  },
+  {
+    "code": "UAILK",
+    "countryCode": "UA",
+    "name": "Chornomorsk"
+  },
+  {
+    "code": "UAODS",
+    "countryCode": "UA",
+    "name": "Odessa"
+  },
+  {
+    "code": "UAOCT",
+    "countryCode": "UA",
+    "name": "Oktyabrsk"
+  },
+  {
+    "code": "UAYUZ",
+    "countryCode": "UA",
+    "name": "Yuzhnyy"
+  }
+]

@@ -1,0 +1,9 @@
+1) изменить через проводник файлі в папке C:\Документы\CEFACT\FAL\prototype\markkravchuk.github.io\src\config\JSON
+2)Открыть командную строку
+3)cd C:\Документы\CEFACT\FAL\prototype\markkravchuk.github.io
+
+git pull
+git add .
+git commit -m "any message"
+git push
+npm run deploy
