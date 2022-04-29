@@ -45,7 +45,7 @@ function PortForm({data, updateData, locationNumber}) {
 
     return <>
         <Typography variant="h3" component="h3" gutterBottom>
-            CMR information
+            Invoice information
         </Typography>
 
         <Typography variant="h5" component="h5" gutterBottom style={{marginTop: '30px'}}>

@@ -41,10 +41,11 @@ import MainPageInfo from './../config/JSON/shipCallsData.json'
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import CMRFormComponent from "../components/blocks/cmrFormComponent";
+import InvoiceFormComponent from "../components/blocks/invoiceFormComponent";
 const listOfOptions = listOfOptionsConst;
 
 
-const defaultOption = 'CMR';
+const defaultOption = 'Invoice';
 
 const drawerWidth = config.showDrawerIcons ? 200 : 180;
 
@@ -214,12 +215,14 @@ function CarDetails({history}) {
                                         try {
                                             let {
                                                 cmr,
+                                                invoice
                                             } = readXML(reader.result);
                                             let dataCopy = JSON.parse(JSON.stringify(data));
 
                                             setData({
                                                 ...dataCopy, ...{
                                                     cmr,
+                                                    invoice
                                                 }
                                             });
                                         } catch (e) {
@@ -348,10 +351,10 @@ function getChildComponent(activeItem, [data, setData]) {
             return <CMRFormComponent data={[data.cmr]} updateData={(dataItem) => {
                 setData({...data, cmr: {...data.cmr, ...dataItem}})
             }}/>
-    //     case 'ships':
-    //         return <ShipFormComponent data={data.ship} updateData={(dataItem) => {
-    //             setData({...data, ship: {...data.ship, ...dataItem}})
-    //         }}/>
+        case 'invoice':
+            return <InvoiceFormComponent data={data.invoice} updateData={(dataItem) => {
+                setData({...data, invoice: {...data.invoice, ...dataItem}})
+            }}/>
     //     case 'voyage':
     //         return <VoyageForm data={data.voyage} updateData={(dataItem) => {
     //             setData({...data, voyage: {...data.voyage, ...dataItem}})
