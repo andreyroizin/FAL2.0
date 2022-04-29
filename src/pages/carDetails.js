@@ -40,7 +40,7 @@ import _ from 'underscore'
 import MainPageInfo from './../config/JSON/shipCallsData.json'
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-
+import CMRFormComponent from "../components/blocks/cmrFormComponent";
 const listOfOptions = listOfOptionsConst;
 
 
@@ -362,12 +362,12 @@ function CarDetails({history}) {
 function getChildComponent(activeItem, [data, setData]) {
     let selectedItem = listOfOptions[activeItem].value;
 
-    // switch (selectedItem) {
-    //     case 'port':
-    //         //@FIXME make it as a better function
-    //         return <PortForm data={data.port} updateData={(dataItem) => {
-    //             setData({...data, port: {...data.port, ...dataItem}});
-    //         }}/>
+    switch (selectedItem) {
+        case 'cmr':
+            //@FIXME make it as a better function
+            return <CMRFormComponent data={[]} updateData={(dataItem) => {
+                setData({...data});
+            }}/>
     //     case 'ships':
     //         return <ShipFormComponent data={data.ship} updateData={(dataItem) => {
     //             setData({...data, ship: {...data.ship, ...dataItem}})
@@ -427,9 +427,9 @@ function getChildComponent(activeItem, [data, setData]) {
     //                 let waste = JSON.parse(JSON.stringify(data.waste));
     //                 setData({...data, waste: {...waste, ...dataItem}});
     //             }}/>
-    //     default:
-    //         return <h1>Not supported yet</h1>
-    // }
+        default:
+            return <h1>Not supported yet</h1>
+    }
 }
 
 if (config.addOnCloseEvent) {
