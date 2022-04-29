@@ -7,8 +7,8 @@ import {
 import {createBrowserHistory} from 'history';
 
 import HomePage from "./pages/homePage";
-import ShipDetails from "./pages/shipDetails";
 import NotFound from "./pages/404NotFound";
+import CarDetails from "./pages/carDetails";
 
 const history = createBrowserHistory();
 
@@ -19,7 +19,7 @@ export default class AppRouter extends React.Component {
             <Router history={history}>
                 <Switch>
                     <Route path={'/'} exact component={HomePage}/>
-                    <Route path={'/details/:id'} component={ShipDetails}/>
+                    <Route path={'/details/:id'} component={CarDetails}/>
                     <Route path={'/fal-ukraine/'} exact component={HomePage}/>
                     <Route path={'/fal-ukraine/details/:id'} exact component={HomePage}/>
                     <Route component={NotFound}/>
