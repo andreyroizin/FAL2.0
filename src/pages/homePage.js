@@ -13,29 +13,24 @@ console.log('COlumn data: ', shipCallsData)
 const columns = [
     {field: 'id', headerName: 'ID', width: 100},
     {
-        field: 'ship',
-        headerName: 'Ship',
+        field: 'TruckNumber',
+        headerName: 'Truck number',
         width: 200,
     },
     {
-        field: 'imo',
-        headerName: 'IMO',
-        width: 110,
+        field: 'Country',
+        headerName: 'Country',
+        width: 200,
     },
     {
-        field: 'portCall',
-        headerName: 'Port call',
-        width: 160,
+        field: 'DocumentNumber',
+        headerName: '№ of document',
+        width: 200,
     },
     {
-        field: 'agent',
-        headerName: 'Agent',
-        width: 150,
-    },
-    {
-        field: 'ETA',
-        headerName: 'ETA',
-        width: 150,
+        field: 'DateOfDocument',
+        headerName: 'Date of document',
+        width: 200,
     },
 ];
 
@@ -85,7 +80,7 @@ export default function HomePage({history}) {
 
                 <Grid container style={{marginTop: '30px'}} justify={'center'}>
 
-                    <div style={{width: '905px', height: '300px'}}>
+                    <div style={{width: '905px', height: '300px', align:'center'}}>
                         <DataGrid
                             rows={shipCallsData}
                             columns={columns}

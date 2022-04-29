@@ -1,18 +1,16 @@
 [
   {
     "id": 1,
-    "ship": "GRETA",
-    "imo": 9234422,
-    "portCall": "UAODS",
-    "agent": "Одемара",
-    "ETA": "01.04.2021"
+    "TruckNumber": "111",
+    "Country": "Ukraine",
+    "DocumentNumber": "123",
+    "DateOfDocument": "01.04.2021"
   },
   {
     "id": 2,
-    "ship": "GEROITE NA SEVASTOPOL",
-    "imo": 7529976,
-    "portCall": "UAODS",
-    "agent": "PLASKE JSC",
-    "ETA": "10.08.2020"
+    "TruckNumber": "222",
+    "Country": "Ukraine",
+    "DocumentNumber": "456",
+    "DateOfDocument": "10.08.2020"
   }
 ]
