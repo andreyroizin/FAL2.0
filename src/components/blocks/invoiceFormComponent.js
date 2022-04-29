@@ -14,7 +14,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import AddIcon from '@material-ui/icons/Add';
 import ListOfPurposesOfCalls from '../../config/consts/listOfPurposesOfCallsConst';
 import ListOfPorts from '../../config/JSON/listOfPorts'
-import ListOfCountries from '../../data/countries'
+import ListOfLanguages from '../../data/languages'
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -43,6 +43,8 @@ const useStyles = makeStyles((theme) => ({
 
 function PortForm({data, updateData, locationNumber}) {
     const classes = useStyles();
+    const emptyDiv = <div className={classes.formControlNoMargin} style={{height: '0px'}}/>
+
 
     return <>
         <Typography variant="h3" component="h3" gutterBottom>
@@ -82,14 +84,265 @@ function PortForm({data, updateData, locationNumber}) {
                         updateData({language: e.target.value})
                     }}
                 >
-                    {ListOfPorts.map((port, index) =>
-                        <MenuItem key={index} value={`${port.code}`}>
-                            {`${port.code} - ${port.countryCode} - ${port.name}`}
-                        </MenuItem>
-                    )}
+                    {/*{ListOfLanguages.map((language, index) =>*/}
+                    {/*    <MenuItem key={index} value={language.name}>*/}
+                    {/*        {`${language.name}`}*/}
+                    {/*    </MenuItem>*/}
+                    {/*)}*/}
                 </Select>
             </FormControl>
 
+        </Grid>
+
+        <Grid container justify={'space-between'} style={{marginTop: '30px'}}>
+
+            <TextField
+                label="Tax Registration ID:"
+                value={data.taxID}
+                onChange={(e) => updateData({taxID: e.target.value})}
+                variant="outlined"
+            />
+
+            <TextField
+                label="Registered Tax/TypeCode:"
+                value={data.registeredTax}
+                onChange={(e) => updateData({registeredTax: e.target.value})}
+                variant="outlined"
+            />
+
+            {emptyDiv}
+        </Grid>
+
+        <Typography variant="h5" component="h5" gutterBottom style={{marginTop: '30px'}}>
+            Defined contract details
+        </Typography>
+
+        <Grid container justify={'space-between'} style={{marginTop: '30px'}}>
+
+            <TextField
+                label="Name:"
+                value={data.taxID}
+                onChange={(e) => updateData({taxID: e.target.value})}
+                variant="outlined"
+            />
+
+            <TextField
+                label="Mobile telefone:"
+                value={data.registeredTax}
+                onChange={(e) => updateData({registeredTax: e.target.value})}
+                variant="outlined"
+            />
+
+            <TextField
+                label="Email:"
+                value={data.registeredTax}
+                onChange={(e) => updateData({registeredTax: e.target.value})}
+                variant="outlined"
+            />
+        </Grid>
+
+        <Grid container justify={'space-between'} style={{marginTop: '30px'}}>
+
+            <TextField
+                label="Postcode:"
+                value={data.taxID}
+                onChange={(e) => updateData({taxID: e.target.value})}
+                variant="outlined"
+            />
+
+            <TextField
+                label="Street:"
+                value={data.registeredTax}
+                onChange={(e) => updateData({registeredTax: e.target.value})}
+                variant="outlined"
+            />
+
+            <TextField
+                label="City:"
+                value={data.registeredTax}
+                onChange={(e) => updateData({registeredTax: e.target.value})}
+                variant="outlined"
+            />
+        </Grid>
+
+        <Grid container justify={'space-between'} style={{marginTop: '30px'}}>
+
+            <FormControl
+                variant="outlined"
+                className={classes.formControlNoMargin}
+            >
+                <InputLabel id="departure-arrival-label">Country</InputLabel>
+
+                <Select
+                    labelId="departure-arrival-label"
+                    value={data.language}
+                    onChange={(e) => {
+                        updateData({language: e.target.value})
+                    }}
+                >
+                    {/*{ListOfLanguages.map((language, index) =>*/}
+                    {/*    <MenuItem key={index} value={language.name}>*/}
+                    {/*        {`${language.name}`}*/}
+                    {/*    </MenuItem>*/}
+                    {/*)}*/}
+                </Select>
+            </FormControl>
+
+            <TextField
+                label="Country subdivision:"
+                value={data.registeredTax}
+                onChange={(e) => updateData({registeredTax: e.target.value})}
+                variant="outlined"
+            />
+
+            {emptyDiv}
+        </Grid>
+
+        <Typography variant="h5" component="h5" gutterBottom style={{marginTop: '30px'}}>
+            Buyer details
+        </Typography>
+
+        <Grid container justify={'space-between'}>
+
+            <TextField
+                label="ID:"
+                value={data.id}
+                onChange={(e) => updateData({id: e.target.value})}
+                variant="outlined"
+            />
+
+            <TextField
+                label="Name:"
+                value={data.name}
+                onChange={(e) => updateData({name: e.target.value})}
+                variant="outlined"
+            />
+
+            <FormControl
+                variant="outlined"
+                className={classes.formControlNoMargin}
+            >
+                <InputLabel id="departure-arrival-label">Language</InputLabel>
+
+                <Select
+                    labelId="departure-arrival-label"
+                    value={data.language}
+                    onChange={(e) => {
+                        updateData({language: e.target.value})
+                    }}
+                >
+                    {/*{ListOfLanguages.map((language, index) =>*/}
+                    {/*    <MenuItem key={index} value={language.name}>*/}
+                    {/*        {`${language.name}`}*/}
+                    {/*    </MenuItem>*/}
+                    {/*)}*/}
+                </Select>
+            </FormControl>
+
+        </Grid>
+
+        <Grid container justify={'space-between'} style={{marginTop: '30px'}}>
+
+            <TextField
+                label="Tax Registration ID:"
+                value={data.taxID}
+                onChange={(e) => updateData({taxID: e.target.value})}
+                variant="outlined"
+            />
+
+            <TextField
+                label="Registered Tax/TypeCode:"
+                value={data.registeredTax}
+                onChange={(e) => updateData({registeredTax: e.target.value})}
+                variant="outlined"
+            />
+
+            {emptyDiv}
+        </Grid>
+
+        <Typography variant="h5" component="h5" gutterBottom style={{marginTop: '30px'}}>
+            Defined contract details
+        </Typography>
+
+        <Grid container justify={'space-between'} style={{marginTop: '30px'}}>
+
+            <TextField
+                label="Name:"
+                value={data.taxID}
+                onChange={(e) => updateData({taxID: e.target.value})}
+                variant="outlined"
+            />
+
+            <TextField
+                label="Mobile telefone:"
+                value={data.registeredTax}
+                onChange={(e) => updateData({registeredTax: e.target.value})}
+                variant="outlined"
+            />
+
+            <TextField
+                label="Email:"
+                value={data.registeredTax}
+                onChange={(e) => updateData({registeredTax: e.target.value})}
+                variant="outlined"
+            />
+        </Grid>
+
+        <Grid container justify={'space-between'} style={{marginTop: '30px'}}>
+
+            <TextField
+                label="Postcode:"
+                value={data.taxID}
+                onChange={(e) => updateData({taxID: e.target.value})}
+                variant="outlined"
+            />
+
+            <TextField
+                label="Street:"
+                value={data.registeredTax}
+                onChange={(e) => updateData({registeredTax: e.target.value})}
+                variant="outlined"
+            />
+
+            <TextField
+                label="City:"
+                value={data.registeredTax}
+                onChange={(e) => updateData({registeredTax: e.target.value})}
+                variant="outlined"
+            />
+        </Grid>
+
+        <Grid container justify={'space-between'} style={{marginTop: '30px'}}>
+
+            <FormControl
+                variant="outlined"
+                className={classes.formControlNoMargin}
+            >
+                <InputLabel id="departure-arrival-label">Country</InputLabel>
+
+                <Select
+                    labelId="departure-arrival-label"
+                    value={data.language}
+                    onChange={(e) => {
+                        updateData({language: e.target.value})
+                    }}
+                >
+                    {/*{ListOfLanguages.map((language, index) =>*/}
+                    {/*    <MenuItem key={index} value={language.name}>*/}
+                    {/*        {`${language.name}`}*/}
+                    {/*    </MenuItem>*/}
+                    {/*)}*/}
+                </Select>
+            </FormControl>
+
+            <TextField
+                label="Country subdivision:"
+                value={data.registeredTax}
+                onChange={(e) => updateData({registeredTax: e.target.value})}
+                variant="outlined"
+            />
+
+            {emptyDiv}
         </Grid>
 
     </>
