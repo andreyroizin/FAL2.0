@@ -15,6 +15,8 @@ import AddIcon from '@material-ui/icons/Add';
 import ListOfPurposesOfCalls from '../../config/consts/listOfPurposesOfCallsConst';
 import ListOfPorts from '../../config/JSON/listOfPorts'
 import ListOfLanguages from '../../data/languages'
+import ReactDataGrid from "react-data-grid";
+import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -40,10 +42,36 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+const tradeLineItemsColumns = [
+    {key: "NR", name: "NR", editable: false, width: 50},
+];
 
 function PortForm({data, updateData, locationNumber}) {
     const classes = useStyles();
     const emptyDiv = <div className={classes.formControlNoMargin} style={{height: '0px'}}/>
+
+    function addRow() {
+        console.log("adding row");
+        let number = data.tradeLineItems.length + 1
+        let row = {NR: number}
+        data.tradeLineItems.push(row);
+        updateData(data)
+    }
+
+    function deleteRow() {
+        data.tradeLineItems.pop();
+        updateData(data)
+    }
+
+    function onGridRowsUpdated({fromRow, toRow, updated}) {
+
+        const tradeLineItems = data.tradeLineItems.slice();
+        for (let i = fromRow; i <= toRow; i++) {
+            tradeLineItems[i] = {...tradeLineItems[i], ...updated};
+        }
+        data.tradeLineItems = tradeLineItems;
+        updateData(data)
+    }
 
 
     return <>
@@ -345,6 +373,21 @@ function PortForm({data, updateData, locationNumber}) {
             {emptyDiv}
         </Grid>
 
+        <Typography variant="h5" component="h5" gutterBottom style={{marginTop: '30px'}}>
+            Trade line items
+        </Typography>
+
+        <ReactDataGrid
+            columns={tradeLineItemsColumns}
+            rowGetter={i => data.tradeLineItems[i]}
+            rowsCount={data.tradeLineItems.length}
+            onGridRowsUpdated={onGridRowsUpdated}
+            enableCellSelect={true}
+
+        />
+        <Button variant="primary" startIcon={<AddIcon/>} onClick={addRow}>Add row</Button>
+        <Button variant="primary" startIcon={<DeleteOutlineIcon/>} onClick={deleteRow}>Delete row</Button>
+
     </>
 }
 
@@ -352,5 +395,7 @@ function correctDateTime(date) {
     date = "" + date;
     return date.substr(0, 16);
 }
+
+
 
 export default PortForm;

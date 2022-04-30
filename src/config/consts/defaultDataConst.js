@@ -4,6 +4,9 @@ export default {
         },
 
     invoice: {
+        tradeLineItems: [
+            {"NR": 1}
+        ]
 
     },
 }
