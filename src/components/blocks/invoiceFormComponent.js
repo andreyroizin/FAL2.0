@@ -17,6 +17,8 @@ import ListOfPorts from '../../config/JSON/listOfPorts'
 import ListOfLanguages from '../../data/languages'
 import ReactDataGrid from "react-data-grid";
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
+import countryCodes from "../../functions/countryCodes";
+import {Editors} from "react-data-grid-addons";
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -41,9 +43,25 @@ const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(1),
     },
 }));
+const {DropDownEditor} = Editors;
+const countryCodesList = countryCodes.getCountriesWithCodes();
+countryCodesList.unshift("(...)")
+const CountryCodesEditor = <DropDownEditor options={countryCodesList}/>;
 
 const tradeLineItemsColumns = [
     {key: "NR", name: "NR", editable: false, width: 50},
+    {key: "Name", name: "Name", editable: true, width: 150},
+    {key: "Description", name: "Description", editable: true, width: 250},
+    {key: "Net_weight", name: "Net weight", editable: true, width: 150},
+    {key: "Gross_weight", name: "Gross weight", editable: true, width: 150},
+    {key: "Class_code", name: "Class Code", editable: true, width: 150},
+    {key: "Origin_country", name: "Origin  Country", editable: true, editor: CountryCodesEditor, width: 150},
+    {key: "Charge_amount", name: "Charge Amount", editable: true, width: 150},
+    {key: "Basis_quantity", name: "Basis Quantity", editable: true, width: 150},
+    {key: "Billed_quantity", name: "Billed Quantity", editable: true, width: 150},
+    {key: "Total_amount", name: "Total Amount", editable: true, width: 150},
+    {key: "Tax_total_amount", name: "Tax Total Amount", editable: true, width: 150},
+    {key: "Net_total_amount", name: "Net Total Amount", editable: true, width: 150},
 ];
 
 function PortForm({data, updateData, locationNumber}) {
