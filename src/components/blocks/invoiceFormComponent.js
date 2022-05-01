@@ -15,6 +15,7 @@ import AddIcon from '@material-ui/icons/Add';
 import ListOfPurposesOfCalls from '../../config/consts/listOfPurposesOfCallsConst';
 import ListOfPorts from '../../config/JSON/listOfPorts'
 import ListOfLanguages from '../../data/languages'
+import ListOfCountries from '../../data/countries'
 import ReactDataGrid from "react-data-grid";
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 import countryCodes from "../../functions/countryCodes";
@@ -226,11 +227,11 @@ function PortForm({data, updateData, locationNumber}) {
                         updateData({language: e.target.value})
                     }}
                 >
-                    {/*{ListOfLanguages.map((language, index) =>*/}
-                    {/*    <MenuItem key={index} value={language.name}>*/}
-                    {/*        {`${language.name}`}*/}
-                    {/*    </MenuItem>*/}
-                    {/*)}*/}
+                    {Object.keys(ListOfCountries).map((country, index) =>
+                        <MenuItem key={index} value={ListOfCountries[country]}>
+                            {`${ListOfCountries[country]}`}
+                        </MenuItem>
+                    )}
                 </Select>
             </FormControl>
 
@@ -277,11 +278,11 @@ function PortForm({data, updateData, locationNumber}) {
                         updateData({language: e.target.value})
                     }}
                 >
-                    {/*{ListOfLanguages.map((language, index) =>*/}
-                    {/*    <MenuItem key={index} value={language.name}>*/}
-                    {/*        {`${language.name}`}*/}
-                    {/*    </MenuItem>*/}
-                    {/*)}*/}
+                    {Object.keys(ListOfLanguages).map((language, index) =>
+                        <MenuItem key={index} value={ListOfLanguages[language].name}>
+                            {`${ListOfLanguages[language].name}`}
+                        </MenuItem>
+                    )}
                 </Select>
             </FormControl>
 
@@ -373,11 +374,11 @@ function PortForm({data, updateData, locationNumber}) {
                         updateData({language: e.target.value})
                     }}
                 >
-                    {/*{ListOfLanguages.map((language, index) =>*/}
-                    {/*    <MenuItem key={index} value={language.name}>*/}
-                    {/*        {`${language.name}`}*/}
-                    {/*    </MenuItem>*/}
-                    {/*)}*/}
+                    {Object.keys(ListOfCountries).map((country, index) =>
+                        <MenuItem key={index} value={ListOfCountries[country]}>
+                            {`${ListOfCountries[country]}`}
+                        </MenuItem>
+                    )}
                 </Select>
             </FormControl>
 
