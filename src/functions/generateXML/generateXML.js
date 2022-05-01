@@ -10,6 +10,7 @@ import generateCrewEffects, {checkRequiredCrewEffects} from "./generateCrewEffec
 import generateCargo, {checkRequiredDangerous} from "./generateCargo";
 import generateSecurity, {checkRequiredSecurity} from "./generateSecurity";
 import generateWaste, {checkRequiredWaste} from "./generateWaste";
+import generateInvoice from "./generateInvoice";
 import _ from 'underscore'
 
 function createXML(data, onError, checkForErrors,xmlType) {
@@ -26,6 +27,9 @@ function createXML(data, onError, checkForErrors,xmlType) {
     switch (xmlType) {
         case 'invoice':
             let SupplyChainTradeTransaction = [];
+            let invoiceXML = generateInvoice(data.invoice)
+            let xmlValue = xml([invoiceXML], {declaration: true});
+            downloadXMLfile(xmlValue);
 
     }
 
