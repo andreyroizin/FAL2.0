@@ -9,13 +9,10 @@ import Select from '@material-ui/core/Select'
 import '@date-io/date-fns';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import DeleteIcon from '@material-ui/icons/Delete';
 import AddIcon from '@material-ui/icons/Add';
-import ListOfPurposesOfCalls from '../../config/consts/listOfPurposesOfCallsConst';
-import ListOfPorts from '../../config/JSON/listOfPorts'
 import ListOfLanguages from '../../data/languages'
 import ListOfCountries from '../../data/countries'
+import ListOfCurrencies from '../../data/currencies'
 import ReactDataGrid from "react-data-grid";
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 import countryCodes from "../../functions/countryCodes";
@@ -32,16 +29,6 @@ const useStyles = makeStyles((theme) => ({
     },
     formControlNoMargin: {
         minWidth: 225,
-    },
-    formControlNoMargin2: {
-        minWidth: 225,
-        // minHeight: 60
-    },
-    selectEmpty: {
-        marginTop: theme.spacing(2),
-    },
-    button: {
-        margin: theme.spacing(1),
     },
 }));
 const {DropDownEditor} = Editors;
@@ -488,11 +475,11 @@ function PortForm({data, updateData, locationNumber}) {
                         updateData({language: e.target.value})
                     }}
                 >
-                    {/*{ListOfLanguages.map((language, index) =>*/}
-                    {/*    <MenuItem key={index} value={language.name}>*/}
-                    {/*        {`${language.name}`}*/}
-                    {/*    </MenuItem>*/}
-                    {/*)}*/}
+                    {ListOfCurrencies.map((currency, index) =>
+                        <MenuItem key={index} value={currency.cc}>
+                            {`${currency.cc} - ${currency.name}`}
+                        </MenuItem>
+                    )}
                 </Select>
             </FormControl>
 
