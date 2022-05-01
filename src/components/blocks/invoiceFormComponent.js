@@ -130,11 +130,11 @@ function PortForm({data, updateData, locationNumber}) {
                         updateData({language: e.target.value})
                     }}
                 >
-                    {/*{ListOfLanguages.map((language, index) =>*/}
-                    {/*    <MenuItem key={index} value={language.name}>*/}
-                    {/*        {`${language.name}`}*/}
-                    {/*    </MenuItem>*/}
-                    {/*)}*/}
+                    {Object.keys(ListOfLanguages).map((language, index) =>
+                        <MenuItem key={index} value={ListOfLanguages[language].name}>
+                            {`${ListOfLanguages[language].name}`}
+                        </MenuItem>
+                    )}
                 </Select>
             </FormControl>
 
