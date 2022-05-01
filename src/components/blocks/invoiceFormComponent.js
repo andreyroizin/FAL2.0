@@ -395,6 +395,7 @@ function PortForm({data, updateData, locationNumber}) {
             Trade line items
         </Typography>
 
+        <Grid container justify={'space-between'} style={{marginTop: '30px'}}>
         <ReactDataGrid
             columns={tradeLineItemsColumns}
             rowGetter={i => data.tradeLineItems[i]}
@@ -403,6 +404,8 @@ function PortForm({data, updateData, locationNumber}) {
             enableCellSelect={true}
 
         />
+        </Grid>
+
         <Button variant="primary" startIcon={<AddIcon/>} onClick={addRow}>Add row</Button>
         <Button variant="primary" startIcon={<DeleteOutlineIcon/>} onClick={deleteRow}>Delete row</Button>
 
