@@ -442,9 +442,9 @@ function PortForm({data, updateData, locationNumber}) {
                 className={classes.datePicker}
                 variant={'outlined'}
                 margin={"normal"}
-                value={correctDateTime(data.ETDPortOfCall)}
+                value={correctDateTime(data.occurrence)}
                 onChange={(e) =>
-                    updateData({ETDPortOfCall: e.target.value})}
+                    updateData({occurrence: e.target.value})}
                 InputLabelProps={{
                     shrink: true,
                 }}

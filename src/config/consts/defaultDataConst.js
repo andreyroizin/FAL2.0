@@ -4,6 +4,8 @@ export default {
         },
 
     invoice: {
+        // id:'',
+        // occurrence:'',
         tradeLineItems: [
             {"NR": 1}
         ]

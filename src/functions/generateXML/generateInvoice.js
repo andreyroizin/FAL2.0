@@ -5,9 +5,9 @@ const generateInvoice = (invoice) => {
 
     let invoiceXML = {
         CIIMessage:[{
-            EPCMessageHeader: [
-                {ID: invoice.id,}
-
+            ExchangedDocument: [
+                {ID: invoice.id},
+                {IssueDateTime: invoice.occurrence}
                 ]
         }]
     }
