@@ -406,6 +406,138 @@ function PortForm({data, updateData, locationNumber}) {
         <Button variant="primary" startIcon={<AddIcon/>} onClick={addRow}>Add row</Button>
         <Button variant="primary" startIcon={<DeleteOutlineIcon/>} onClick={deleteRow}>Delete row</Button>
 
+        <Typography variant="h5" component="h5" gutterBottom style={{marginTop: '30px'}}>
+            Related Consignment
+        </Typography>
+
+        <Grid container justify={'space-between'} style={{marginTop: '30px'}}>
+
+            <TextField
+                label="Gross Weight:"
+                value={data.taxID}
+                onChange={(e) => updateData({taxID: e.target.value})}
+                variant="outlined"
+            />
+
+            <TextField
+                label="Net Weight:"
+                value={data.registeredTax}
+                onChange={(e) => updateData({registeredTax: e.target.value})}
+                variant="outlined"
+            />
+
+            <TextField
+                label="Package Quantity:"
+                value={data.registeredTax}
+                onChange={(e) => updateData({registeredTax: e.target.value})}
+                variant="outlined"
+            />
+        </Grid>
+
+
+        <Grid container justify={'space-between'} style={{marginTop: '30px'}}>
+
+            <TextField
+                label="Used  Logistics  Transport Means:"
+                value={data.taxID}
+                onChange={(e) => updateData({taxID: e.target.value})}
+                variant="outlined"
+            />
+
+            <TextField
+                label="Occurrence"
+                type="datetime-local"
+                contentEditable={false}
+                className={classes.datePicker}
+                variant={'outlined'}
+                margin={"normal"}
+                value={correctDateTime(data.ETDPortOfCall)}
+                onChange={(e) =>
+                    updateData({ETDPortOfCall: e.target.value})}
+                InputLabelProps={{
+                    shrink: true,
+                }}
+            />
+
+            {emptyDiv}
+        </Grid>
+
+        <Grid container justify={'space-between'} style={{marginTop: '30px'}}>
+
+            <TextField
+                label="Due Payable  Amount:"
+                value={data.taxID}
+                onChange={(e) => updateData({taxID: e.target.value})}
+                variant="outlined"
+            />
+
+            <FormControl
+                variant="outlined"
+                className={classes.formControlNoMargin}
+            >
+                <InputLabel id="departure-arrival-label">Currency</InputLabel>
+
+                <Select
+                    labelId="departure-arrival-label"
+                    value={data.language}
+                    onChange={(e) => {
+                        updateData({language: e.target.value})
+                    }}
+                >
+                    {/*{ListOfLanguages.map((language, index) =>*/}
+                    {/*    <MenuItem key={index} value={language.name}>*/}
+                    {/*        {`${language.name}`}*/}
+                    {/*    </MenuItem>*/}
+                    {/*)}*/}
+                </Select>
+            </FormControl>
+
+            {emptyDiv}
+        </Grid>
+
+        <Typography variant="h5" component="h5" gutterBottom style={{marginTop: '30px'}}>
+            Payee Party. Creditor Financial Account
+        </Typography>
+
+        <Grid container justify={'space-between'} style={{marginTop: '30px'}}>
+
+            <TextField
+                label="IBAN:"
+                value={data.taxID}
+                onChange={(e) => updateData({taxID: e.target.value})}
+                variant="outlined"
+            />
+
+            <TextField
+                label="Account:"
+                value={data.taxID}
+                onChange={(e) => updateData({taxID: e.target.value})}
+                variant="outlined"
+            />
+            {emptyDiv}
+        </Grid>
+
+        <Typography variant="h5" component="h5" gutterBottom style={{marginTop: '30px'}}>
+            Trade Tax
+        </Typography>
+
+        <Grid container justify={'space-between'} style={{marginTop: '30px'}}>
+
+            <TextField
+                label="Exemption Reason Code:"
+                value={data.taxID}
+                onChange={(e) => updateData({taxID: e.target.value})}
+                variant="outlined"
+            />
+
+            <TextField
+                label="Trade Payment Terms:"
+                value={data.taxID}
+                onChange={(e) => updateData({taxID: e.target.value})}
+                variant="outlined"
+            />
+            {emptyDiv}
+        </Grid>
     </>
 }
 
