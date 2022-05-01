@@ -174,36 +174,36 @@ function CarDetails({history}) {
                                     onClose={handleClose}
                                 >
                                     <MenuItem onClick={() => {
-                                        createXML(data, () => {}, false)
+                                        createXML(data, () => {}, false,"invoice")
                                         handleClose();
-                                    }}>Save to XML (as draft)</MenuItem>
-                                    <MenuItem onClick={() => {
-                                        const onError = (errors) => {
-                                            let missingFields = [];
-                                            for (let block in errors) {
-                                                if (!errors.hasOwnProperty(block) || _.isEmpty(errors['' + block])) continue;
-                                                missingFields.push(`Block ${block}:`);
-                                                for (let field in errors['' + block]) {
-                                                    if (!errors['' + block].hasOwnProperty(field)) continue;
-                                                    if (typeof errors[block][field] === typeof true) {
-                                                        missingFields.push(`→  ${field} is empty`);
-                                                    } else {
-                                                        missingFields.push(`→  ${field} columns are empty`);
-                                                    }
-                                                }
-                                                missingFields.push("");
-                                            }
-                                            setOpenErrorDialog({
-                                                open: true,
-                                                error: {
-                                                    title: "Please fill in required fields first: ",
-                                                    text: missingFields
-                                                }
-                                            })
-                                        }
-                                        createXML(data, onError, true);
-                                        handleClose();
-                                    }}>Generate full XML file</MenuItem>
+                                    }}>Save Invoice to XML (as draft)</MenuItem>
+                                    {/*<MenuItem onClick={() => {*/}
+                                    {/*    const onError = (errors) => {*/}
+                                    {/*        let missingFields = [];*/}
+                                    {/*        for (let block in errors) {*/}
+                                    {/*            if (!errors.hasOwnProperty(block) || _.isEmpty(errors['' + block])) continue;*/}
+                                    {/*            missingFields.push(`Block ${block}:`);*/}
+                                    {/*            for (let field in errors['' + block]) {*/}
+                                    {/*                if (!errors['' + block].hasOwnProperty(field)) continue;*/}
+                                    {/*                if (typeof errors[block][field] === typeof true) {*/}
+                                    {/*                    missingFields.push(`→  ${field} is empty`);*/}
+                                    {/*                } else {*/}
+                                    {/*                    missingFields.push(`→  ${field} columns are empty`);*/}
+                                    {/*                }*/}
+                                    {/*            }*/}
+                                    {/*            missingFields.push("");*/}
+                                    {/*        }*/}
+                                    {/*        setOpenErrorDialog({*/}
+                                    {/*            open: true,*/}
+                                    {/*            error: {*/}
+                                    {/*                title: "Please fill in required fields first: ",*/}
+                                    {/*                text: missingFields*/}
+                                    {/*            }*/}
+                                    {/*        })*/}
+                                    {/*    }*/}
+                                    {/*    createXML(data, onError, true);*/}
+                                    {/*    handleClose();*/}
+                                    {/*}}>Generate full XML file</MenuItem>*/}
                                 </Menu>
                             </Grid>
                             <input
@@ -347,7 +347,6 @@ function getChildComponent(activeItem, [data, setData]) {
 
     switch (selectedItem) {
         case 'cmr':
-            //@FIXME make it as a better function
             return <CMRFormComponent data={[data.cmr]} updateData={(dataItem) => {
                 setData({...data, cmr: {...data.cmr, ...dataItem}})
             }}/>

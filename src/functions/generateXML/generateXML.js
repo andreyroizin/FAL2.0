@@ -12,43 +12,52 @@ import generateSecurity, {checkRequiredSecurity} from "./generateSecurity";
 import generateWaste, {checkRequiredWaste} from "./generateWaste";
 import _ from 'underscore'
 
-function createXML(data, onError, checkForErrors) {
-    // @FIXME The required fields are not verified yet :(
-    const errors = checkRequiredFields(data);
-    if (!_.isEmpty(errors) && checkForErrors) {
-        onError(errors);
-        return;
+function createXML(data, onError, checkForErrors,xmlType) {
+    if(checkForErrors){
+        const errors = checkRequiredFields(data);
+        if (!_.isEmpty(errors)) {
+            onError(errors);
+            return;
+        }
     }
 
-    let EPCRequestBody = [];
 
-    generatePort(data.port, EPCRequestBody);
-    generateCrew(data.crew, EPCRequestBody);
-    generateShip(data.ship, EPCRequestBody);
-    generatePassengers(data.passengers, EPCRequestBody);
-    generateVoyage(data.voyage, EPCRequestBody);
-    generateShipStores(data.shipStores, EPCRequestBody);
-    generateHealth(data.health, EPCRequestBody);
-    generateCrewEffects(data.crewEffects, EPCRequestBody);
-    generateCargo(data.cargo, data.dpg, EPCRequestBody)
-    generateSecurity(data.security, EPCRequestBody);
-    generateWaste(data.waste, EPCRequestBody);
 
-    let xmlValue = xml([{
-        EPCMessage: [{
-            EPCMessageHeader: [
-                {ArrivalDeparture: data.port.arrivalDeparture}
-            ]
-        },
-            {
-                EPCRequestBody: EPCRequestBody
-            }
-        ]
-    }], {declaration: true});
-    downloadXMLfile(xmlValue);
+    switch (xmlType) {
+        case 'invoice':
+            let SupplyChainTradeTransaction = [];
+
+    }
+
+    // let EPCRequestBody = [];
+    // generatePort(data.port, EPCRequestBody);
+    // generateCrew(data.crew, EPCRequestBody);
+    // generateShip(data.ship, EPCRequestBody);
+    // generatePassengers(data.passengers, EPCRequestBody);
+    // generateVoyage(data.voyage, EPCRequestBody);
+    // generateShipStores(data.shipStores, EPCRequestBody);
+    // generateHealth(data.health, EPCRequestBody);
+    // generateCrewEffects(data.crewEffects, EPCRequestBody);
+    // generateCargo(data.cargo, data.dpg, EPCRequestBody)
+    // generateSecurity(data.security, EPCRequestBody);
+    // generateWaste(data.waste, EPCRequestBody);
+
+    // let xmlValue = xml([{
+    //     EPCMessage: [{
+    //         EPCMessageHeader: [
+    //             {ArrivalDeparture: data.port.arrivalDeparture}
+    //         ]
+    //     },
+    //         {
+    //             EPCRequestBody: EPCRequestBody
+    //         }
+    //     ]
+    // }], {declaration: true});
+    // downloadXMLfile(xmlValue);
 }
 
 function checkRequiredFields(data) {
+    console.log("checking for errors")
     const errors = {};
     checkRequiredPort(errors, data.port);
     checkRequiredShip(errors, data.ship);
