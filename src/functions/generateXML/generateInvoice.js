@@ -11,6 +11,18 @@ const generateInvoice = (invoice) => {
 
         let TradeProduct = [];
         TradeProduct.push({Name: tradeLineItem.Name});
+        TradeProduct.push({Description: tradeLineItem.Description});
+        TradeProduct.push({NetWeight: tradeLineItem.Net_weight});
+        TradeProduct.push({GrossWeight: tradeLineItem.Gross_weight});
+        TradeProduct.push({Classification: [{ClassCode:tradeLineItem.Class_code}]});
+
+        let originCountryCode = '';
+        if (tradeLineItem.Origin_country && tradeLineItem.Origin_country !== '') {
+            let originCountry = tradeLineItem.Origin_country.split('- ');
+            originCountryCode = originCountry[1];
+        }
+
+        TradeProduct.push({OriginCountry: [{Code:originCountryCode}]});
 
         console.log("TradeProduct",TradeProduct)
 
