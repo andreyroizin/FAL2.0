@@ -133,7 +133,7 @@ function PortForm({data, updateData, locationNumber}) {
                 >
                     {Object.keys(ListOfLanguages).map((language, index) =>
                         <MenuItem key={index} value={ListOfLanguages[language].name}>
-                            {`${ListOfLanguages[language].name}`}
+                            {`${language} - ${ListOfLanguages[language].name}`}
                         </MenuItem>
                     )}
                 </Select>
@@ -229,7 +229,7 @@ function PortForm({data, updateData, locationNumber}) {
                 >
                     {Object.keys(ListOfCountries).map((country, index) =>
                         <MenuItem key={index} value={ListOfCountries[country]}>
-                            {`${ListOfCountries[country]}`}
+                            {`${country} - ${ListOfCountries[country]}`}
                         </MenuItem>
                     )}
                 </Select>
@@ -280,7 +280,7 @@ function PortForm({data, updateData, locationNumber}) {
                 >
                     {Object.keys(ListOfLanguages).map((language, index) =>
                         <MenuItem key={index} value={ListOfLanguages[language].name}>
-                            {`${ListOfLanguages[language].name}`}
+                            {`${language} - ${ListOfLanguages[language].name}`}
                         </MenuItem>
                     )}
                 </Select>
@@ -376,7 +376,7 @@ function PortForm({data, updateData, locationNumber}) {
                 >
                     {Object.keys(ListOfCountries).map((country, index) =>
                         <MenuItem key={index} value={ListOfCountries[country]}>
-                            {`${ListOfCountries[country]}`}
+                            {`${country} - ${ListOfCountries[country]}`}
                         </MenuItem>
                     )}
                 </Select>
