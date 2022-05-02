@@ -6,7 +6,6 @@ const generateInvoice = (invoice) => {
     let SupplyChainTradeTransaction = [];
     for (let i = 0; i < invoice.tradeLineItems.length; i++) {
         let tradeLineItem = invoice.tradeLineItems[i];
-        console.log("tradeLineItem",tradeLineItem);
         let IncludedTradeLineItem = [];
 
         let TradeProduct = [];
@@ -24,12 +23,26 @@ const generateInvoice = (invoice) => {
 
         TradeProduct.push({OriginCountry: [{Code:originCountryCode}]});
 
-        console.log("TradeProduct",TradeProduct)
+        IncludedTradeLineItem.push({LineTradeAgreement: [
+                {ProductGrossPrice:[
+                    {ChargeAmount:tradeLineItem.Charge_amount},
+                    {BasisQuantity:tradeLineItem.Basis_quantity}
+                    ]}
 
+            ]});
+
+        IncludedTradeLineItem.push({LineTradeDelivery: [{BilledQuantity:tradeLineItem.Billed_quantity}]})
         IncludedTradeLineItem.push({TradeProduct: TradeProduct})
-        console.log("IncludedTradeLineItem",IncludedTradeLineItem)
+        IncludedTradeLineItem.push({LineTradeSettlement: [
+                {MonetarySummation:[
+                        {LineTotalAmount:tradeLineItem.Total_amount},
+                        {TaxTotalAmount:tradeLineItem.Tax_total_amount},
+                        {NetLineTotalAmount:tradeLineItem.Net_total_amount}
+                    ]}
+
+            ]});
         SupplyChainTradeTransaction.push({IncludedTradeLineItem: IncludedTradeLineItem})
-        console.log("SupplyChainTradeTransaction",SupplyChainTradeTransaction)
+
     }
 
 
