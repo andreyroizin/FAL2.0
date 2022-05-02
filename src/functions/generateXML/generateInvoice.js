@@ -126,7 +126,26 @@ const generateInvoice = (invoice) => {
         }]});
 
 
-    SupplyChainTradeTransaction.push({HeaderTradeDelivery:HeaderTradeDelivery})
+    SupplyChainTradeTransaction.push({HeaderTradeDelivery:HeaderTradeDelivery});
+
+    let HeaderTradeSettlement = [];
+
+    HeaderTradeSettlement.push({DuePayableAmount:invoice.due_payable_amount})
+    HeaderTradeSettlement.push({InvoiceCurrencyCode:invoice.invoice_currency_code})
+    HeaderTradeSettlement.push({PaymentMeans:[
+            {PayeeCreditorFinancialAccount:[
+                    {IBANID: invoice.ibanID},
+                    {Name: invoice.account_name}
+                ]}
+            ]});
+    HeaderTradeSettlement.push({TradeTax:[
+            {ExemptionReasonCode:invoice.exemption_reason_code}
+        ]});
+    HeaderTradeSettlement.push({PaymentTerms:[
+            {Description:invoice.payment_term_description}
+        ]});
+
+    SupplyChainTradeTransaction.push({HeaderTradeSettlement:HeaderTradeSettlement});
 
 
     let invoiceXML = {
@@ -135,7 +154,10 @@ const generateInvoice = (invoice) => {
                 {ID: invoice.id},
                 ],
 
-        },{SupplyChainTradeTransaction:SupplyChainTradeTransaction}]
+        },
+            {SupplyChainTradeTransaction:SupplyChainTradeTransaction},
+
+        ]
     }
 
     return invoiceXML;

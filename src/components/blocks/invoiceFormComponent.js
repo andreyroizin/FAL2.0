@@ -457,8 +457,8 @@ function PortForm({data, updateData, locationNumber}) {
 
             <TextField
                 label="Due Payable  Amount:"
-                value={data.taxID}
-                onChange={(e) => updateData({taxID: e.target.value})}
+                value={data.due_payable_amount}
+                onChange={(e) => updateData({due_payable_amount: e.target.value})}
                 variant="outlined"
             />
 
@@ -470,9 +470,9 @@ function PortForm({data, updateData, locationNumber}) {
 
                 <Select
                     labelId="departure-arrival-label"
-                    value={data.language}
+                    value={data.invoice_currency_code}
                     onChange={(e) => {
-                        updateData({language: e.target.value})
+                        updateData({invoice_currency_code: e.target.value})
                     }}
                 >
                     {ListOfCurrencies.map((currency, index) =>
@@ -494,15 +494,15 @@ function PortForm({data, updateData, locationNumber}) {
 
             <TextField
                 label="IBAN:"
-                value={data.taxID}
-                onChange={(e) => updateData({taxID: e.target.value})}
+                value={data.ibanID}
+                onChange={(e) => updateData({ibanID: e.target.value})}
                 variant="outlined"
             />
 
             <TextField
                 label="Account:"
-                value={data.taxID}
-                onChange={(e) => updateData({taxID: e.target.value})}
+                value={data.account_name}
+                onChange={(e) => updateData({account_name: e.target.value})}
                 variant="outlined"
             />
             {emptyDiv}
@@ -516,15 +516,15 @@ function PortForm({data, updateData, locationNumber}) {
 
             <TextField
                 label="Exemption Reason Code:"
-                value={data.taxID}
-                onChange={(e) => updateData({taxID: e.target.value})}
+                value={data.exemption_reason_code}
+                onChange={(e) => updateData({exemption_reason_code: e.target.value})}
                 variant="outlined"
             />
 
             <TextField
                 label="Trade Payment Terms:"
-                value={data.taxID}
-                onChange={(e) => updateData({taxID: e.target.value})}
+                value={data.payment_term_description}
+                onChange={(e) => updateData({payment_term_description: e.target.value})}
                 variant="outlined"
             />
             {emptyDiv}
