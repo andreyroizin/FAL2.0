@@ -166,7 +166,8 @@ const generateInvoice = (invoice) => {
 
 export const checkRequiredInvoice = (errors, invoice) => {
     errors.Invoice = {};
-    if (!invoice.id) errors.id["ID"] = true;
+    if (!invoice.invoice_id) errors.Invoice["ID"] = true;
+    if (!invoice.date_of_document) errors.Invoice["Date of document"] = true;
 }
 
 export default generateInvoice;
