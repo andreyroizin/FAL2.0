@@ -113,6 +113,21 @@ const generateInvoice = (invoice) => {
     HeaderTradeAgreement.push({Buyer:Buyer});
     SupplyChainTradeTransaction.push({HeaderTradeAgreement:HeaderTradeAgreement})
 
+    let HeaderTradeDelivery = [];
+    HeaderTradeDelivery.push({RelatedConsignment:[
+            {GrossWeight:invoice.gross_weight},
+            {NetWeight:invoice.net_weight},
+            {PackageQuantity:invoice.package_quantity},
+            {SpecifiedTransportMovement:[
+                    {UsedTransportMeans:[{ID:invoice.transport_means_id}]}]}
+        ]});
+    HeaderTradeDelivery.push({ActualDespatchEvent:[{
+            OccurenceDateTime:invoice.occurrence_date_time
+        }]});
+
+
+    SupplyChainTradeTransaction.push({HeaderTradeDelivery:HeaderTradeDelivery})
+
 
     let invoiceXML = {
         CIIMessage:[{

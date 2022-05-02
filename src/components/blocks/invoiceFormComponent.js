@@ -405,22 +405,22 @@ function PortForm({data, updateData, locationNumber}) {
 
             <TextField
                 label="Gross Weight:"
-                value={data.taxID}
-                onChange={(e) => updateData({taxID: e.target.value})}
+                value={data.gross_weight}
+                onChange={(e) => updateData({gross_weight: e.target.value})}
                 variant="outlined"
             />
 
             <TextField
                 label="Net Weight:"
-                value={data.registeredTax}
-                onChange={(e) => updateData({registeredTax: e.target.value})}
+                value={data.net_weight}
+                onChange={(e) => updateData({net_weight: e.target.value})}
                 variant="outlined"
             />
 
             <TextField
                 label="Package Quantity:"
-                value={data.registeredTax}
-                onChange={(e) => updateData({registeredTax: e.target.value})}
+                value={data.package_quantity}
+                onChange={(e) => updateData({package_quantity: e.target.value})}
                 variant="outlined"
             />
         </Grid>
@@ -430,8 +430,8 @@ function PortForm({data, updateData, locationNumber}) {
 
             <TextField
                 label="Used  Logistics  Transport Means:"
-                value={data.taxID}
-                onChange={(e) => updateData({taxID: e.target.value})}
+                value={data.transport_means_id}
+                onChange={(e) => updateData({transport_means_id: e.target.value})}
                 variant="outlined"
             />
 
@@ -442,9 +442,9 @@ function PortForm({data, updateData, locationNumber}) {
                 className={classes.datePicker}
                 variant={'outlined'}
                 margin={"normal"}
-                value={correctDateTime(data.occurrence)}
+                value={correctDateTime(data.occurrence_date_time)}
                 onChange={(e) =>
-                    updateData({occurrence: e.target.value})}
+                    updateData({occurrence_date_time: e.target.value})}
                 InputLabelProps={{
                     shrink: true,
                 }}
