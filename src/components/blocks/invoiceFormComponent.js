@@ -93,15 +93,15 @@ function PortForm({data, updateData, locationNumber}) {
 
             <TextField
                 label="ID:"
-                value={data.id}
-                onChange={(e) => updateData({id: e.target.value})}
+                value={data.seller_id}
+                onChange={(e) => updateData({seller_id: e.target.value})}
                 variant="outlined"
             />
 
             <TextField
                 label="Name:"
-                value={data.name}
-                onChange={(e) => updateData({name: e.target.value})}
+                value={data.seller_name}
+                onChange={(e) => updateData({seller_name: e.target.value})}
                 variant="outlined"
             />
 
@@ -113,9 +113,9 @@ function PortForm({data, updateData, locationNumber}) {
 
                 <Select
                     labelId="departure-arrival-label"
-                    value={data.language}
+                    value={data.seller_language_code}
                     onChange={(e) => {
-                        updateData({language: e.target.value})
+                        updateData({seller_language_code: e.target.value})
                     }}
                 >
                     {Object.keys(ListOfLanguages).map((language, index) =>
@@ -155,22 +155,22 @@ function PortForm({data, updateData, locationNumber}) {
 
             <TextField
                 label="Name:"
-                value={data.taxID}
-                onChange={(e) => updateData({taxID: e.target.value})}
+                value={data.seller_person_name}
+                onChange={(e) => updateData({seller_person_name: e.target.value})}
                 variant="outlined"
             />
 
             <TextField
                 label="Mobile telefone:"
-                value={data.registeredTax}
-                onChange={(e) => updateData({registeredTax: e.target.value})}
+                value={data.seller_complete_number}
+                onChange={(e) => updateData({seller_complete_number: e.target.value})}
                 variant="outlined"
             />
 
             <TextField
                 label="Email:"
-                value={data.registeredTax}
-                onChange={(e) => updateData({registeredTax: e.target.value})}
+                value={data.seller_email}
+                onChange={(e) => updateData({seller_email: e.target.value})}
                 variant="outlined"
             />
         </Grid>
@@ -179,22 +179,22 @@ function PortForm({data, updateData, locationNumber}) {
 
             <TextField
                 label="Postcode:"
-                value={data.taxID}
-                onChange={(e) => updateData({taxID: e.target.value})}
+                value={data.seller_postcode}
+                onChange={(e) => updateData({seller_postcode: e.target.value})}
                 variant="outlined"
             />
 
             <TextField
                 label="Street:"
-                value={data.registeredTax}
-                onChange={(e) => updateData({registeredTax: e.target.value})}
+                value={data.seller_street_name}
+                onChange={(e) => updateData({seller_street_name: e.target.value})}
                 variant="outlined"
             />
 
             <TextField
                 label="City:"
-                value={data.registeredTax}
-                onChange={(e) => updateData({registeredTax: e.target.value})}
+                value={data.seller_city_name}
+                onChange={(e) => updateData({seller_city_name: e.target.value})}
                 variant="outlined"
             />
         </Grid>
@@ -209,13 +209,13 @@ function PortForm({data, updateData, locationNumber}) {
 
                 <Select
                     labelId="departure-arrival-label"
-                    value={data.language}
+                    value={data.seller_country_code}
                     onChange={(e) => {
-                        updateData({language: e.target.value})
+                        updateData({seller_country_code: e.target.value})
                     }}
                 >
                     {Object.keys(ListOfCountries).map((country, index) =>
-                        <MenuItem key={index} value={ListOfCountries[country]}>
+                        <MenuItem key={index} value={country}>
                             {`${country} - ${ListOfCountries[country]}`}
                         </MenuItem>
                     )}
@@ -224,8 +224,8 @@ function PortForm({data, updateData, locationNumber}) {
 
             <TextField
                 label="Country subdivision:"
-                value={data.registeredTax}
-                onChange={(e) => updateData({registeredTax: e.target.value})}
+                value={data.seller_country_subdivision_name}
+                onChange={(e) => updateData({seller_country_subdivision_name: e.target.value})}
                 variant="outlined"
             />
 

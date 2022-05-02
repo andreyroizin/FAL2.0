@@ -1,5 +1,4 @@
-import listOfPortsConst from "../../config/JSON/listOfPorts";
-import listOfPurposesOfCallsConst from "../../config/consts/listOfPurposesOfCallsConst";
+import listOfCountries from "../../data/countries";
 
 const generateInvoice = (invoice) => {
 
@@ -45,12 +44,41 @@ const generateInvoice = (invoice) => {
 
     }
 
+    let HeaderTradeAgreement = [];
+
+    let Seller = [];
+
+    Seller.push({ID: invoice.seller_id});
+    Seller.push({Name: invoice.seller_name});
+    Seller.push({LanguageCode: invoice.seller_language_code});
+
+    Seller.push({DefinedContractDetails: [
+            {PersonName:invoice.seller_person_name},
+            {MobileTelephone:[
+                    {CompleteNumber: invoice.seller_complete_number},
+                ]},
+            {EmailAddress: [
+                    {URI: invoice.seller_email}
+                ]}
+        ]});
+
+    Seller.push({PostalAddress: [
+            {Postcode: invoice.seller_postcode},
+            {StreetName: invoice.seller_street_name},
+            {CityName: invoice.seller_city_name},
+            {CountryCode: invoice.seller_country_code},
+            {ContryName: listOfCountries[invoice.seller_country_code]},
+            {CountrySubDivisionName: invoice.seller_country_subdivision_name},
+        ]})
+
+    HeaderTradeAgreement.push({Seller:Seller});
+    SupplyChainTradeTransaction.push({HeaderTradeAgreement:HeaderTradeAgreement})
+
 
     let invoiceXML = {
         CIIMessage:[{
             ExchangedDocument: [
                 {ID: invoice.id},
-                {IssueDateTime: invoice.occurrence}
                 ],
 
         },{SupplyChainTradeTransaction:SupplyChainTradeTransaction}]
