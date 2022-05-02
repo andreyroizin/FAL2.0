@@ -132,15 +132,15 @@ function PortForm({data, updateData, locationNumber}) {
 
             <TextField
                 label="Tax Registration ID:"
-                value={data.taxID}
-                onChange={(e) => updateData({taxID: e.target.value})}
+                value={data.seller_tax_id}
+                onChange={(e) => updateData({seller_tax_id: e.target.value})}
                 variant="outlined"
             />
 
             <TextField
                 label="Registered Tax/TypeCode:"
-                value={data.registeredTax}
-                onChange={(e) => updateData({registeredTax: e.target.value})}
+                value={data.seller_tax_type_code}
+                onChange={(e) => updateData({seller_tax_type_code: e.target.value})}
                 variant="outlined"
             />
 
