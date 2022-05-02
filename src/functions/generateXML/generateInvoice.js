@@ -76,32 +76,38 @@ const generateInvoice = (invoice) => {
             {RegisteredTax:[
                     {TypeCode:invoice.seller_tax_type_code},
                 ]}
-        ]})
+        ]});
 
     let Buyer = [];
 
-    Buyer.push({ID: invoice.seller_id});
-    Buyer.push({Name: invoice.seller_name});
-    Buyer.push({LanguageCode: invoice.seller_language_code});
+    Buyer.push({ID: invoice.buyer_id});
+    Buyer.push({Name: invoice.buyer_name});
+    Buyer.push({LanguageCode: invoice.buyer_language_code});
 
     Buyer.push({DefinedContractDetails: [
-            {PersonName:invoice.seller_person_name},
+            {PersonName:invoice.buyer_person_name},
             {MobileTelephone:[
-                    {CompleteNumber: invoice.seller_complete_number},
+                    {CompleteNumber: invoice.buyer_complete_number},
                 ]},
             {EmailAddress: [
-                    {URI: invoice.seller_email}
+                    {URI: invoice.buyer_email}
                 ]}
         ]});
 
     Buyer.push({PostalAddress: [
-            {Postcode: invoice.seller_postcode},
-            {StreetName: invoice.seller_street_name},
-            {CityName: invoice.seller_city_name},
-            {CountryCode: invoice.seller_country_code},
-            {ContryName: listOfCountries[invoice.seller_country_code]},
-            {CountrySubDivisionName: invoice.seller_country_subdivision_name},
-        ]})
+            {Postcode: invoice.buyer_postcode},
+            {StreetName: invoice.buyer_street_name},
+            {CityName: invoice.buyer_city_name},
+            {CountryCode: invoice.buyer_country_code},
+            {ContryName: listOfCountries[invoice.buyer_country_code]},
+            {CountrySubDivisionName: invoice.buyer_country_subdivision_name},
+        ]});
+    Buyer.push({TaxRegistration:[
+            {ID:invoice.buyer_tax_id},
+            {RegisteredTax:[
+                    {TypeCode:invoice.buyer_tax_type_code},
+                ]}
+        ]});
 
     HeaderTradeAgreement.push({Seller:Seller});
     HeaderTradeAgreement.push({Buyer:Buyer});
