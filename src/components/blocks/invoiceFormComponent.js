@@ -85,6 +85,33 @@ function PortForm({data, updateData, locationNumber}) {
             Invoice information
         </Typography>
 
+        <Grid container justify={'space-between'} style={{marginTop: '30px'}}>
+
+            <TextField
+                label="Number of document:"
+                value={data.invoice_id}
+                onChange={(e) => updateData({invoice_id: e.target.value})}
+                variant="outlined"
+            />
+
+            <TextField
+                label="Date of document"
+                type="datetime-local"
+                contentEditable={false}
+                className={classes.datePicker}
+                variant={'outlined'}
+                margin={"normal"}
+                value={correctDateTime(data.date_of_document)}
+                onChange={(e) =>
+                    updateData({date_of_document: e.target.value})}
+                InputLabelProps={{
+                    shrink: true,
+                }}
+            />
+
+            {emptyDiv}
+        </Grid>
+
         <Typography variant="h5" component="h5" gutterBottom style={{marginTop: '30px'}}>
             Sender details
         </Typography>

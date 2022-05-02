@@ -151,7 +151,8 @@ const generateInvoice = (invoice) => {
     let invoiceXML = {
         CIIMessage:[{
             ExchangedDocument: [
-                {ID: invoice.id},
+                {ID: invoice.invoice_id},
+                {IssueDateTime: invoice.date_of_document},
                 ],
 
         },
@@ -163,9 +164,9 @@ const generateInvoice = (invoice) => {
     return invoiceXML;
 };
 
-export const checkRequiredInvoice = (errors, data) => {
+export const checkRequiredInvoice = (errors, invoice) => {
     errors.Invoice = {};
-
+    if (!invoice.id) errors.id["ID"] = true;
 }
 
 export default generateInvoice;

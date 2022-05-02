@@ -10,7 +10,7 @@ import generateCrewEffects, {checkRequiredCrewEffects} from "./generateCrewEffec
 import generateCargo, {checkRequiredDangerous} from "./generateCargo";
 import generateSecurity, {checkRequiredSecurity} from "./generateSecurity";
 import generateWaste, {checkRequiredWaste} from "./generateWaste";
-import generateInvoice from "./generateInvoice";
+import generateInvoice, {checkRequiredInvoice} from "./generateInvoice";
 import _ from 'underscore'
 
 function createXML(data, onError, checkForErrors,xmlType) {
@@ -63,16 +63,7 @@ function createXML(data, onError, checkForErrors,xmlType) {
 function checkRequiredFields(data) {
     console.log("checking for errors")
     const errors = {};
-    checkRequiredPort(errors, data.port);
-    checkRequiredShip(errors, data.ship);
-    checkRequiredCrew(errors, data.crew);
-    checkRequiredPassengers(errors, data.passengers);
-    checkRequiredVoyage(errors, data.voyage);
-    checkRequiredDangerous(errors, data.dpg);
-    checkRequiredSecurity(errors, data.security);
-    checkRequiredCrewEffects(errors, data.crewEffects);
-    checkRequiredHealth(errors, data.health);
-    checkRequiredWaste(errors, data.waste)
+    checkRequiredInvoice(errors, data.invoice);
 
 
     //deleting empty objects
