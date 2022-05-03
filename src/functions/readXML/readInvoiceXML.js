@@ -1,6 +1,6 @@
 const readInvoiceXML = (invoice, xml) => {
 
-    console.log("reading invoice", invoice);
+   invoice.invoice_id = xml.getElementsByTagName('ExchangedDocument')[0].children[0].value;
 };
 
 export default readInvoiceXML;
