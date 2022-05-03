@@ -29,10 +29,28 @@ const readInvoiceXML = (invoice, xml) => {
       }
 
       invoice.tradeLineItems.push(tradeLineItemToSave)
-      console.log("tradeLineItem ",tradeLineItem)
+      // console.log("tradeLineItem ",tradeLineItem)
 
    }
-   console.log("tradeLineItems ",tradeLineItems)
+   let seller = xml.getElementsByTagName('Seller')[0];
+   console.log(seller)
+   invoice.seller_id = seller.children[0].value;
+   invoice.seller_name = seller.children[1].value;
+   invoice.seller_language_code = seller.children[2].value;
+   invoice.seller_tax_id = seller.children[5].children[0].value;
+   invoice.seller_tax_type_code = seller.children[5].children[1].children[0].value;
+   invoice.seller_person_name = seller.children[3].children[0].value;
+   invoice.seller_complete_number = seller.children[3].children[1].children[0].value;
+   invoice.seller_email = seller.children[3].children[2].children[0].value;
+   invoice.seller_postcode = seller.children[4].children[0].value;
+   invoice.seller_street_name = seller.children[4].children[1].value;
+   invoice.seller_city_name = seller.children[4].children[2].value;
+   invoice.seller_country_code = seller.children[4].children[3].value;
+   invoice.seller_country_subdivision_name = seller.children[4].children[5].value;
+
+
+
+   // console.log("tradeLineItems ",tradeLineItems)
 };
 
 export default readInvoiceXML;
