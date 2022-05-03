@@ -1,3 +1,5 @@
+import countryCodes from "../countryCodes";
+
 const readInvoiceXML = (invoice, xml) => {
 
    invoice.invoice_id = xml.getElementsByTagName('ExchangedDocument')[0].children[0].value;
@@ -12,7 +14,12 @@ const readInvoiceXML = (invoice, xml) => {
 
       let tradeLineItemToSave = {
          NR: i + 1,
-         Name: tradeLineItem.children[2].children[0].value
+         Name: tradeLineItem.children[2].children[0].value,
+         Description: tradeLineItem.children[2].children[1].value,
+         Net_weight: tradeLineItem.children[2].children[2].value,
+         Gross_weight: tradeLineItem.children[2].children[3].value,
+         Class_code: tradeLineItem.children[2].children[4].children[0].value,
+         Origin_country: countryCodes.getCountryWithCodeByCode(tradeLineItem.children[2].children[5].children[0].value),
       }
 
       invoice.tradeLineItems.push(tradeLineItemToSave)
