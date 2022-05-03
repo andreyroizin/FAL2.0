@@ -37,10 +37,13 @@ function readXML(fileContent, xmlType) {
             let invoice = defaultData.invoice;
 
             readInvoiceXML(invoice, xml);
-
+            console.log("invoice", invoice);
+            console.log("returning 1")
             return invoice;
 
     }
+    console.log("returning 2")
+    return defaultData.invoice
     // console.log("Read from XML data: ", data);
     // makeReferences(data);
     // return defaultData;

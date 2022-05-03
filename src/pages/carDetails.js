@@ -209,18 +209,19 @@ function CarDetails({history}) {
                             <input
                                 className={classes.uploadFile}
                                 onChange={() => {
-                                    console.log("HERE !!!!!!!!")
                                     const file = document.getElementById("read-invoice-xml-file").files[0];
                                     const reader = new FileReader();
 
                                     reader.onload = (() => {
-                                        console.log("HERE !!!!!!!!")
                                         try {
-                                            let {
-                                                invoice
-                                            } = readXML(reader.result,'invoice');
-                                            let dataCopy = JSON.parse(JSON.stringify(data));
+                                            // let {
+                                            //     invoice
+                                            // } = readXML(reader.result,'invoice');
+                                            console.log("got ",readXML(reader.result,'invoice'))
+                                            let invoice = readXML(reader.result,'invoice');
 
+                                            let dataCopy = JSON.parse(JSON.stringify(data));
+                                            console.log("invoice in main ", invoice);
                                             setData({
                                                 ...dataCopy, ...{
                                                     invoice
