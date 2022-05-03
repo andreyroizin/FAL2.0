@@ -146,7 +146,7 @@ function PortForm({data, updateData, locationNumber}) {
                     }}
                 >
                     {Object.keys(ListOfLanguages).map((language, index) =>
-                        <MenuItem key={index} value={ListOfLanguages[language]}>
+                        <MenuItem key={index} value={language}>
                             {`${language} - ${ListOfLanguages[language].name}`}
                         </MenuItem>
                     )}
@@ -293,7 +293,7 @@ function PortForm({data, updateData, locationNumber}) {
                     }}
                 >
                     {Object.keys(ListOfLanguages).map((language, index) =>
-                        <MenuItem key={index} value={ListOfLanguages[language]}>
+                        <MenuItem key={index} value={ListOfLanguages[language].name}>
                             {`${language} - ${ListOfLanguages[language].name}`}
                         </MenuItem>
                     )}
