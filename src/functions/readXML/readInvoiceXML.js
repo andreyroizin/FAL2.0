@@ -72,6 +72,14 @@ const readInvoiceXML = (invoice, xml) => {
    invoice.package_quantity = relatedConsignment.children[2].value
    invoice.transport_means_id = relatedConsignment.children[3].children[0].children[0].value
 
+   invoice.occurrence_date_time = xml.getElementsByTagName('OccurenceDateTime')[0].value;
+   invoice.due_payable_amount = xml.getElementsByTagName('DuePayableAmount')[0].value;
+   invoice.invoice_currency_code = xml.getElementsByTagName('InvoiceCurrencyCode')[0].value;
+   invoice.ibanID = xml.getElementsByTagName('IBANID')[0].value;
+   invoice.exemption_reason_code = xml.getElementsByTagName('ExemptionReasonCode')[0].value;
+   invoice.account_name = xml.getElementsByTagName('PayeeCreditorFinancialAccount')[0].children[1].value;
+   invoice.payment_term_description = xml.getElementsByTagName('PaymentTerms')[0].children[0].value;
+
 
 
 
