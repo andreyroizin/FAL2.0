@@ -151,11 +151,11 @@ function CarDetails({history}) {
                                     onClose={handleClose}
                                 >
                                     <MenuItem onClick={handleClose}>
-                                        <label htmlFor="read-xml-file">Upload XML document</label>
+                                        <label htmlFor="read-invoice-xml-file">Upload XML document</label>
                                     </MenuItem>
-                                    <MenuItem onClick={handleClose}>
-                                        <label htmlFor="excel-file">Upload Excel document</label>
-                                    </MenuItem>
+                                    {/*<MenuItem onClick={handleClose}>*/}
+                                    {/*    <label htmlFor="excel-file">Upload Excel document</label>*/}
+                                    {/*</MenuItem>*/}
                                 </Menu>
                                 <Button
                                     aria-controls="download-menu"
@@ -209,19 +209,20 @@ function CarDetails({history}) {
                             <input
                                 className={classes.uploadFile}
                                 onChange={() => {
-                                    const file = document.getElementById("read-xml-file").files[0];
+                                    console.log("HERE !!!!!!!!")
+                                    const file = document.getElementById("read-invoice-xml-file").files[0];
                                     const reader = new FileReader();
+
                                     reader.onload = (() => {
+                                        console.log("HERE !!!!!!!!")
                                         try {
                                             let {
-                                                cmr,
                                                 invoice
-                                            } = readXML(reader.result);
+                                            } = readXML(reader.result,'invoice');
                                             let dataCopy = JSON.parse(JSON.stringify(data));
 
                                             setData({
                                                 ...dataCopy, ...{
-                                                    cmr,
                                                     invoice
                                                 }
                                             });
@@ -237,37 +238,37 @@ function CarDetails({history}) {
                                     })
                                     reader.readAsText(file);
                                 }}
-                                id="read-xml-file"
+                                id="read-invoice-xml-file"
                                 type="file"
                             />
-                            <input
-                                className={classes.uploadFile}
-                                id="excel-file"
-                                multiple
-                                onChange={() => {
-                                    const files = document.getElementById("excel-file").files;
+                            {/*<input*/}
+                            {/*    className={classes.uploadFile}*/}
+                            {/*    id="excel-file"*/}
+                            {/*    multiple*/}
+                            {/*    onChange={() => {*/}
+                            {/*        const files = document.getElementById("excel-file").files;*/}
 
-                                    try {
-                                        readXLS(files, setOpenErrorDialog, (item) => {
-                                            let dataCopy = data;
-                                            dataCopy = {...dataCopy, ...{item}}
-                                            setData(dataCopy)
-                                        });
-                                    } catch (e) {
-                                        console.log("catch")
-                                        setOpenErrorDialog({
-                                            open: true, error: {
-                                                title: 'Error while reading XLS',
-                                                text: e
-                                            }
-                                        })
-                                        console.error(e);
-                                    }
+                            {/*        try {*/}
+                            {/*            readXLS(files, setOpenErrorDialog, (item) => {*/}
+                            {/*                let dataCopy = data;*/}
+                            {/*                dataCopy = {...dataCopy, ...{item}}*/}
+                            {/*                setData(dataCopy)*/}
+                            {/*            });*/}
+                            {/*        } catch (e) {*/}
+                            {/*            console.log("catch")*/}
+                            {/*            setOpenErrorDialog({*/}
+                            {/*                open: true, error: {*/}
+                            {/*                    title: 'Error while reading XLS',*/}
+                            {/*                    text: e*/}
+                            {/*                }*/}
+                            {/*            })*/}
+                            {/*            console.error(e);*/}
+                            {/*        }*/}
 
 
-                                }}
-                                type="file"
-                            />
+                            {/*    }}*/}
+                            {/*    type="file"*/}
+                            {/*/>*/}
                         </div>
                     </Grid>
                 </Toolbar>
