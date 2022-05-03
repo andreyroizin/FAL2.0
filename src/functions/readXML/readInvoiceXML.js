@@ -20,6 +20,12 @@ const readInvoiceXML = (invoice, xml) => {
          Gross_weight: tradeLineItem.children[2].children[3].value,
          Class_code: tradeLineItem.children[2].children[4].children[0].value,
          Origin_country: countryCodes.getCountryWithCodeByCode(tradeLineItem.children[2].children[5].children[0].value),
+         Charge_amount: tradeLineItem.children[0].children[0].children[0].value,
+         Basis_quantity: tradeLineItem.children[0].children[0].children[1].value,
+         Billed_quantity: tradeLineItem.children[1].children[0].value,
+         Total_amount: tradeLineItem.children[3].children[0].children[0].value,
+         Tax_total_amount: tradeLineItem.children[3].children[0].children[1].value,
+         Net_total_amount: tradeLineItem.children[3].children[0].children[2].value,
       }
 
       invoice.tradeLineItems.push(tradeLineItemToSave)
