@@ -48,6 +48,21 @@ const readInvoiceXML = (invoice, xml) => {
    invoice.seller_country_code = seller.children[4].children[3].value;
    invoice.seller_country_subdivision_name = seller.children[4].children[5].value;
 
+   let buyer = xml.getElementsByTagName('Buyer')[0];
+   invoice.buyer_id = buyer.children[0].value;
+   invoice.buyer_name = buyer.children[1].value;
+   invoice.buyer_language_code = buyer.children[2].value;
+   invoice.buyer_tax_id = buyer.children[5].children[0].value;
+   invoice.buyer_tax_type_code = buyer.children[5].children[1].children[0].value;
+   invoice.buyer_person_name = buyer.children[3].children[0].value;
+   invoice.buyer_complete_number = buyer.children[3].children[1].children[0].value;
+   invoice.buyer_email = buyer.children[3].children[2].children[0].value;
+   invoice.buyer_postcode = buyer.children[4].children[0].value;
+   invoice.buyer_street_name = buyer.children[4].children[1].value;
+   invoice.buyer_city_name = buyer.children[4].children[2].value;
+   invoice.buyer_country_code = buyer.children[4].children[3].value;
+   invoice.buyer_country_subdivision_name = buyer.children[4].children[5].value;
+
 
 
    // console.log("tradeLineItems ",tradeLineItems)
