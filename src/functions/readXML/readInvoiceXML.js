@@ -1,5 +1,4 @@
 import countryCodes from "../countryCodes";
-import languages from "../../data/languages";
 
 const readInvoiceXML = (invoice, xml) => {
 
@@ -34,11 +33,11 @@ const readInvoiceXML = (invoice, xml) => {
 
    }
    let seller = xml.getElementsByTagName('Seller')[0];
-   console.log("language ",languages[seller.children[2].value])
+
    console.log(seller)
    invoice.seller_id = seller.children[0].value;
    invoice.seller_name = seller.children[1].value;
- // invoice.seller_language_code = languages[seller.children[2].value]
+   invoice.seller_language_code = seller.children[2].value;
    invoice.seller_tax_id = seller.children[5].children[0].value;
    invoice.seller_tax_type_code = seller.children[5].children[1].children[0].value;
    invoice.seller_person_name = seller.children[3].children[0].value;
@@ -54,7 +53,7 @@ const readInvoiceXML = (invoice, xml) => {
    console.log("buyer",buyer);
    invoice.buyer_id = buyer.children[0].value;
    invoice.buyer_name = buyer.children[1].value;
-   // invoice.buyer_language_code = buyer.children[2].value;
+   invoice.buyer_language_code = buyer.children[2].value;
    invoice.buyer_tax_id = buyer.children[5].children[0].value;
    invoice.buyer_tax_type_code = buyer.children[5].children[1].children[0].value;
    invoice.buyer_person_name = buyer.children[3].children[0].value;
