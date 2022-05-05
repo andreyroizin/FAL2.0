@@ -42,15 +42,93 @@ const useStyles = makeStyles((theme) => ({
 
 function PortForm({data, updateData, locationNumber}) {
     const classes = useStyles();
+    const emptyDiv = <div className={classes.formControlNoMargin} style={{height: '0px'}}/>
 
     return <>
         <Typography variant="h3" component="h3" gutterBottom>
             CMR information
         </Typography>
+        <Grid container style={{marginTop: '10px'}} spacing={2}>
 
-        <Typography variant="h5" component="h5" gutterBottom style={{marginTop: '30px'}}>
-            Sender details
-        </Typography>
+            <Grid container  style={{}} item xs={6}>
+                <Typography variant="h5" component="h5" gutterBottom align="center">
+                    Sender details
+                </Typography>
+
+                <Grid container justify={'space-between'}style={{marginTop: '30px'}}>
+                    <TextField
+                        label="ID:"
+                        value={data.invoice_id}
+                        onChange={(e) => updateData({invoice_id: e.target.value})}
+                        variant="outlined"
+                    />
+
+                    <TextField
+                        label="Name:"
+                        value={data.invoice_id}
+                        onChange={(e) => updateData({invoice_id: e.target.value})}
+                        variant="outlined"
+                    />
+                </Grid>
+            </Grid>
+            <Grid container  style={{}} item xs={6}>
+                <Typography variant="h5" component="h5" gutterBottom>
+                    Document details
+                </Typography>
+
+                <Grid container justify={'space-between'}style={{marginTop: '30px'}}>
+                    <TextField
+                        label="Number of document:"
+                        value={data.invoice_id}
+                        onChange={(e) => updateData({invoice_id: e.target.value})}
+                        variant="outlined"
+                    />
+
+                    <TextField
+                        label="Date of document"
+                        type="datetime-local"
+                        contentEditable={false}
+                        className={classes.datePicker}
+                        variant={'outlined'}
+                        // margin={"normal"}
+                        value={correctDateTime(data.date_of_document)}
+                        onChange={(e) =>
+                            updateData({date_of_document: e.target.value})}
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                    />
+                </Grid>
+
+            </Grid>
+
+        </Grid>
+
+
+
+        {/*<TextField*/}
+        {/*    label="Number of document:"*/}
+        {/*    value={data.invoice_id}*/}
+        {/*    onChange={(e) => updateData({invoice_id: e.target.value})}*/}
+        {/*    variant="outlined"*/}
+        {/*/>*/}
+
+        {/*<TextField*/}
+        {/*    label="Date of document"*/}
+        {/*    type="datetime-local"*/}
+        {/*    contentEditable={false}*/}
+        {/*    className={classes.datePicker}*/}
+        {/*    variant={'outlined'}*/}
+        {/*    margin={"normal"}*/}
+        {/*    value={correctDateTime(data.date_of_document)}*/}
+        {/*    onChange={(e) =>*/}
+        {/*        updateData({date_of_document: e.target.value})}*/}
+        {/*    InputLabelProps={{*/}
+        {/*        shrink: true,*/}
+        {/*    }}*/}
+        {/*/>*/}
+
+        {/*{emptyDiv}*/}
 
     </>
 }

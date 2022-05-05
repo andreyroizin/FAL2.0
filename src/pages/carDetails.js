@@ -45,7 +45,7 @@ import InvoiceFormComponent from "../components/blocks/invoiceFormComponent";
 const listOfOptions = listOfOptionsConst;
 
 
-const defaultOption = 'Invoice';
+const defaultOption = 'CMR';
 
 const drawerWidth = config.showDrawerIcons ? 200 : 180;
 
@@ -214,10 +214,6 @@ function CarDetails({history}) {
 
                                     reader.onload = (() => {
                                         try {
-                                            // let {
-                                            //     invoice
-                                            // } = readXML(reader.result,'invoice');
-                                            console.log("got ",readXML(reader.result,'invoice'))
                                             let invoice = readXML(reader.result,'invoice');
 
                                             let dataCopy = JSON.parse(JSON.stringify(data));
@@ -242,34 +238,6 @@ function CarDetails({history}) {
                                 id="read-invoice-xml-file"
                                 type="file"
                             />
-                            {/*<input*/}
-                            {/*    className={classes.uploadFile}*/}
-                            {/*    id="excel-file"*/}
-                            {/*    multiple*/}
-                            {/*    onChange={() => {*/}
-                            {/*        const files = document.getElementById("excel-file").files;*/}
-
-                            {/*        try {*/}
-                            {/*            readXLS(files, setOpenErrorDialog, (item) => {*/}
-                            {/*                let dataCopy = data;*/}
-                            {/*                dataCopy = {...dataCopy, ...{item}}*/}
-                            {/*                setData(dataCopy)*/}
-                            {/*            });*/}
-                            {/*        } catch (e) {*/}
-                            {/*            console.log("catch")*/}
-                            {/*            setOpenErrorDialog({*/}
-                            {/*                open: true, error: {*/}
-                            {/*                    title: 'Error while reading XLS',*/}
-                            {/*                    text: e*/}
-                            {/*                }*/}
-                            {/*            })*/}
-                            {/*            console.error(e);*/}
-                            {/*        }*/}
-
-
-                            {/*    }}*/}
-                            {/*    type="file"*/}
-                            {/*/>*/}
                         </div>
                     </Grid>
                 </Toolbar>
@@ -356,61 +324,6 @@ function getChildComponent(activeItem, [data, setData]) {
             return <InvoiceFormComponent data={data.invoice} updateData={(dataItem) => {
                 setData({...data, invoice: {...data.invoice, ...dataItem}})
             }}/>
-    //     case 'voyage':
-    //         return <VoyageForm data={data.voyage} updateData={(dataItem) => {
-    //             setData({...data, voyage: {...data.voyage, ...dataItem}})
-    //         }}/>
-    //     case 'crew':
-    //         return <CrewForm data={data.crew} updateData={(dataItem) => {
-    //             setData({...data, crew: {...data.crew, ...dataItem}})
-    //         }}/>
-    //     case 'passengers':
-    //         return <PassengersForm data={data.passengers} updateData={(dataItem) => {
-    //             setData({...data, passengers: {...data.passengers, ...dataItem}});
-    //         }}/>
-    //     case 'ship_stores':
-    //         return <ShipStoresForm data={data.shipStores} updateData={(dataItem) => {
-    //             setData({...data, shipStores: {...data.shipStores, ...dataItem}});
-    //         }}/>
-    //     case 'crew_effects':
-    //         return <CrewEffectsForm data={data.crewEffects} crewData={data.crew} updateData={(dataItem) => {
-    //             setData({...data, crewEffects: {...data.crewEffects, ...dataItem}})
-    //         }}/>
-    //     case 'cargo':
-    //         return <CargoForm data={data.cargo} updateData={(dataItem) => {
-    //             setData({...data, cargo: {...data.cargo, ...dataItem}});
-    //         }}/>
-    //     case 'health':
-    //         return <HealthFormComponent
-    //             data={data.health}
-    //             crewData={data.crew}
-    //             passengerData={data.passengers}
-    //             updateData={(dataItem) => {
-    //                 let health = JSON.parse(JSON.stringify(data.health))
-    //                 setData({...data, health: {...health, ...dataItem}});
-    //             }}/>
-    //     case 'dangerous_goods':
-    //         return <DPGForm
-    //             data={data.dpg}
-    //             cargoData={data.cargo}
-    //             updateData={(dataItem) => {
-    //                 let dpg = JSON.parse(JSON.stringify(data.dpg))
-    //                 setData({...data, dpg: {...dpg, ...dataItem}});
-    //             }}/>
-    //     case 'security':
-    //         return <SecurityFormComponent
-    //             data={data.security}
-    //             updateData={(dataItem) => {
-    //                 let security = JSON.parse(JSON.stringify(data.security));
-    //                 setData({...data, security: {...security, ...dataItem}});
-    //             }}/>
-    //     case 'waste':
-    //         return <WasteFormComponent
-    //             data={data.waste}
-    //             updateData={(dataItem) => {
-    //                 let waste = JSON.parse(JSON.stringify(data.waste));
-    //                 setData({...data, waste: {...waste, ...dataItem}});
-    //             }}/>
         default:
             return <h1>Not supported yet</h1>
     }

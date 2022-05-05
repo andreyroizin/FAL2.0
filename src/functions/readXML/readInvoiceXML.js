@@ -29,12 +29,11 @@ const readInvoiceXML = (invoice, xml) => {
       }
 
       invoice.tradeLineItems.push(tradeLineItemToSave)
-      // console.log("tradeLineItem ",tradeLineItem)
 
    }
    let seller = xml.getElementsByTagName('Seller')[0];
 
-   console.log(seller)
+
    invoice.seller_id = seller.children[0].value;
    invoice.seller_name = seller.children[1].value;
    invoice.seller_language_code = seller.children[2].value;
@@ -50,7 +49,7 @@ const readInvoiceXML = (invoice, xml) => {
    invoice.seller_country_subdivision_name = seller.children[4].children[5].value;
 
    let buyer = xml.getElementsByTagName('Buyer')[0];
-   console.log("buyer",buyer);
+
    invoice.buyer_id = buyer.children[0].value;
    invoice.buyer_name = buyer.children[1].value;
    invoice.buyer_language_code = buyer.children[2].value;

@@ -1,7 +1,8 @@
 {
-  "name": "oon",
+  "name": "FAL2.0",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://andreyroizin.github.io/FAL2.0/",
   "dependencies": {
     "@date-io/date-fns": "1.3.11",
     "@hookform/resolvers": "^2.6.0",
