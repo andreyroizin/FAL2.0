@@ -24,8 +24,8 @@ const useStyles = makeStyles((theme) => ({
         minWidth: 225,
     },
     datePicker: {
-        minWidth: 250,
-        width: 250
+        minWidth: 225,
+        width: 225
     },
     formControlNoMargin: {
         minWidth: 225,
@@ -96,11 +96,10 @@ function PortForm({data, updateData, locationNumber}) {
 
             <TextField
                 label="Date of document"
-                type="datetime-local"
+                type="date"
                 contentEditable={false}
                 className={classes.datePicker}
                 variant={'outlined'}
-                margin={"normal"}
                 value={correctDateTime(data.date_of_document)}
                 onChange={(e) =>
                     updateData({date_of_document: e.target.value})}
@@ -468,7 +467,6 @@ function PortForm({data, updateData, locationNumber}) {
                 contentEditable={false}
                 className={classes.datePicker}
                 variant={'outlined'}
-                margin={"normal"}
                 value={correctDateTime(data.occurrence_date_time)}
                 onChange={(e) =>
                     updateData({occurrence_date_time: e.target.value})}

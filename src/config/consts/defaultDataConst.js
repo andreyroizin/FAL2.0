@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
     cmr: {
+        date_of_document:'',
         },
 
     invoice: {

@@ -317,7 +317,7 @@ function getChildComponent(activeItem, [data, setData]) {
 
     switch (selectedItem) {
         case 'cmr':
-            return <CMRFormComponent data={[data.cmr]} updateData={(dataItem) => {
+            return <CMRFormComponent data={data.cmr} updateData={(dataItem) => {
                 setData({...data, cmr: {...data.cmr, ...dataItem}})
             }}/>
         case 'invoice':
