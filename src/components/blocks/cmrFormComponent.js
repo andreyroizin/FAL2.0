@@ -252,7 +252,20 @@ function PortForm({data, updateData, locationNumber}) {
             <hr
                 className={classes.divisionLine}
             />
+            <Grid container alignItems="flex-start" style={{marginTop: '10px'}} spacing={2}>
 
+                <Grid container  style={{}} item xs={6}>
+                    <Typography variant="h5" component="h5" gutterBottom>
+                        Consignee details
+                    </Typography>
+                </Grid>
+
+                <Grid container  style={{}} item xs={6}>
+                    <Typography variant="h5" component="h5" gutterBottom>
+                        Career details
+                    </Typography>
+                </Grid>
+            </Grid>
         </Grid>
 
 
