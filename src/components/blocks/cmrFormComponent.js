@@ -38,6 +38,14 @@ const useStyles = makeStyles((theme) => ({
     button: {
         margin: theme.spacing(1),
     },
+
+    divisionLine:{
+        background: 'black',
+        color: 'black',
+        borderColor: 'black',
+        height: '3px',
+        width:"100%"
+    }
 }));
 
 
@@ -240,6 +248,10 @@ function PortForm({data, updateData, locationNumber}) {
                 </Grid>
 
             </Grid>
+
+            <hr
+                className={classes.divisionLine}
+            />
 
         </Grid>
 
