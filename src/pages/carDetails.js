@@ -151,11 +151,8 @@ function CarDetails({history}) {
                                     onClose={handleClose}
                                 >
                                     <MenuItem onClick={handleClose}>
-                                        <label htmlFor="read-invoice-xml-file">Upload XML document</label>
+                                        <label htmlFor="read-invoice-xml-file">Upload Invoice XML document</label>
                                     </MenuItem>
-                                    {/*<MenuItem onClick={handleClose}>*/}
-                                    {/*    <label htmlFor="excel-file">Upload Excel document</label>*/}
-                                    {/*</MenuItem>*/}
                                 </Menu>
                                 <Button
                                     aria-controls="download-menu"

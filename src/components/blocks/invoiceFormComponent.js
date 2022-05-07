@@ -129,7 +129,14 @@ function PortForm({data, updateData, locationNumber}) {
                 value={data.seller_name}
                 onChange={(e) => updateData({seller_name: e.target.value})}
                 variant="outlined"
+                style={{width: '59%'}}
             />
+
+
+        </Grid>
+
+        <Grid container justify={'space-between'} style={{marginTop: '30px'}}>
+
 
             <FormControl
                 variant="outlined"
@@ -152,10 +159,6 @@ function PortForm({data, updateData, locationNumber}) {
                 </Select>
             </FormControl>
 
-        </Grid>
-
-        <Grid container justify={'space-between'} style={{marginTop: '30px'}}>
-
             <TextField
                 label="Tax Registration ID:"
                 value={data.seller_tax_id}
@@ -170,7 +173,7 @@ function PortForm({data, updateData, locationNumber}) {
                 variant="outlined"
             />
 
-            {emptyDiv}
+
         </Grid>
 
         <Typography variant="h5" component="h5" gutterBottom style={{marginTop: '30px'}}>
@@ -276,7 +279,14 @@ function PortForm({data, updateData, locationNumber}) {
                 value={data.buyer_name}
                 onChange={(e) => updateData({buyer_name: e.target.value})}
                 variant="outlined"
+                style={{width: '59%'}}
             />
+
+
+
+        </Grid>
+
+        <Grid container justify={'space-between'} style={{marginTop: '30px'}}>
 
             <FormControl
                 variant="outlined"
@@ -299,10 +309,6 @@ function PortForm({data, updateData, locationNumber}) {
                 </Select>
             </FormControl>
 
-        </Grid>
-
-        <Grid container justify={'space-between'} style={{marginTop: '30px'}}>
-
             <TextField
                 label="Tax Registration ID:"
                 value={data.buyer_tax_id}
@@ -317,7 +323,7 @@ function PortForm({data, updateData, locationNumber}) {
                 variant="outlined"
             />
 
-            {emptyDiv}
+
         </Grid>
 
         <Typography variant="h5" component="h5" gutterBottom style={{marginTop: '30px'}}>
