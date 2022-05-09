@@ -44,7 +44,8 @@ const useStyles = makeStyles((theme) => ({
         color: 'black',
         borderColor: 'black',
         height: '3px',
-        width:"100%"
+        width:"100%",
+        marginTop:"30px"
     }
 }));
 
@@ -557,6 +558,52 @@ function PortForm({data, updateData, locationNumber}) {
                     <Typography variant="h5" component="h5" gutterBottom align="center">
                         Place and date of taking over the goods
                     </Typography>
+                    <Grid container justify={'space-between'}style={{marginTop: '10px'}}>
+                        <TextField
+                            label="Date"
+                            type="date"
+                            contentEditable={false}
+                            className={classes.datePicker}
+                            variant={'outlined'}
+                            value={correctDateTime(data.date_of_document)}
+                            onChange={(e) =>
+                                updateData({date_of_document: e.target.value})}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                        />
+
+                        <TextField
+                            label="Name:"
+                            value={data.invoice_id}
+                            onChange={(e) => updateData({invoice_id: e.target.value})}
+                            variant="outlined"
+                        />
+                    </Grid>
+
+                    <Grid container justify={'space-between'}style={{marginTop: '30px'}}>
+                        <FormControl
+                            variant="outlined"
+                            className={classes.formControlNoMargin}
+                        >
+                            <InputLabel id="departure-arrival-label">Country</InputLabel>
+
+                            <Select
+                                labelId="departure-arrival-label"
+                                value={data.seller_country_code}
+                                onChange={(e) => {
+                                    updateData({seller_country_code: e.target.value})
+                                }}
+                            >
+                                {Object.keys(ListOfCountries).map((country, index) =>
+                                    <MenuItem key={index} value={country}>
+                                        {`${country} - ${ListOfCountries[country]}`}
+                                    </MenuItem>
+                                )}
+                            </Select>
+                        </FormControl>
+
+                    </Grid>
                 </Grid>
                 <Grid container  style={{}} item xs={6}>
                     <Typography variant="h5" component="h5" gutterBottom align="center">
@@ -705,6 +752,11 @@ function PortForm({data, updateData, locationNumber}) {
 
                 </Grid>
 
+            </Grid>
+            <hr
+                className={classes.divisionLine}
+            />
+            <Grid container alignItems="flex-start" style={{marginTop: '10px'}} spacing={2}>
             </Grid>
         </Grid>
 
