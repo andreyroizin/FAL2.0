@@ -808,6 +808,36 @@ function PortForm({data, updateData, locationNumber}) {
 
                     </Grid>
                 </Grid>
+                <Grid container  style={{}} item xs={6}>
+                    <Typography variant="h5" component="h5" gutterBottom align="center">
+                        Carriers reservations and observations:
+                    </Typography>
+                    <Grid container justify={'space-between'}style={{marginTop: '10px'}}>
+
+                        <TextField
+                            label="Reservation/observation:"
+                            value={data.invoice_id}
+                            onChange={(e) => updateData({invoice_id: e.target.value})}
+                            variant="outlined"
+                        />
+                        <TextField
+                            label="Reservation/observation:"
+                            value={data.invoice_id}
+                            onChange={(e) => updateData({invoice_id: e.target.value})}
+                            variant="outlined"
+                        />
+                    </Grid>
+
+                    <Grid container justify={'space-between'}style={{marginTop: '30px'}}>
+                        <TextField
+                            label="Reservation/observation:"
+                            value={data.invoice_id}
+                            onChange={(e) => updateData({invoice_id: e.target.value})}
+                            variant="outlined"
+                        />
+
+                    </Grid>
+                </Grid>
             </Grid>
         </Grid>
 
