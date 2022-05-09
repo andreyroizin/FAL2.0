@@ -72,19 +72,6 @@ function PortForm({data, updateData, locationNumber}) {
                         variant="outlined"
                     />
 
-                    {emptyDiv}
-                </Grid>
-                <Grid container justify={'space-between'}style={{marginTop: '30px'}}>
-                    <TextField
-                        label="Name:"
-                        value={data.invoice_id}
-                        onChange={(e) => updateData({invoice_id: e.target.value})}
-                        variant="outlined"
-                        fullWidth
-                    />
-                </Grid>
-
-                <Grid container justify={'space-between'}style={{marginTop: '30px'}}>
                     <FormControl
                         variant="outlined"
                         className={classes.formControlNoMargin}
@@ -106,6 +93,16 @@ function PortForm({data, updateData, locationNumber}) {
                         </Select>
                     </FormControl>
                 </Grid>
+                <Grid container justify={'space-between'}style={{marginTop: '30px'}}>
+                    <TextField
+                        label="Name:"
+                        value={data.invoice_id}
+                        onChange={(e) => updateData({invoice_id: e.target.value})}
+                        variant="outlined"
+                        fullWidth
+                    />
+                </Grid>
+
                 <Grid container justify={'space-between'}style={{marginTop: '30px'}}>
                     <TextField
                         label="Tax Registration ID:"
@@ -241,6 +238,9 @@ function PortForm({data, updateData, locationNumber}) {
                         label="Remarks:"
                         value={data.invoice_id}
                         onChange={(e) => updateData({invoice_id: e.target.value})}
+                        fullWidth
+                        multiline
+                        rowsMax={2}
                         variant="outlined"
                     />
 
