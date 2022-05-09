@@ -835,10 +835,56 @@ function PortForm({data, updateData, locationNumber}) {
                             onChange={(e) => updateData({invoice_id: e.target.value})}
                             variant="outlined"
                         />
-
                     </Grid>
                 </Grid>
             </Grid>
+            <hr
+                className={classes.divisionLine}
+            />
+            <Grid container alignItems="flex-start" style={{marginTop: '10px'}} spacing={2}>
+                <Grid container  style={{}} item xs={6}>
+                    <Typography variant="h5" component="h5" gutterBottom align="center">
+                        Documents attached
+                    </Typography>
+                </Grid>
+            </Grid>
+            <hr
+                className={classes.divisionLine}
+            />
+            <Grid container alignItems="flex-start" style={{marginTop: '10px'}} spacing={2}>
+                <Grid container  style={{}} item xs={6}>
+                    <Typography variant="h5" component="h5" gutterBottom align="center">
+                        Supply Chain Consignment
+                    </Typography>
+                    <Grid container justify={'space-between'}style={{marginTop: '10px'}}>
+
+                        <TextField
+                            label="Gross weight (total):"
+                            value={data.invoice_id}
+                            onChange={(e) => updateData({invoice_id: e.target.value})}
+                            variant="outlined"
+                        />
+                        <TextField
+                            label="Volume (total):"
+                            value={data.invoice_id}
+                            onChange={(e) => updateData({invoice_id: e.target.value})}
+                            variant="outlined"
+                        />
+                    </Grid>
+
+                    <Grid container justify={'space-between'}style={{marginTop: '30px'}}>
+                        <TextField
+                            label="COD amount:"
+                            value={data.invoice_id}
+                            onChange={(e) => updateData({invoice_id: e.target.value})}
+                            variant="outlined"
+                        />
+                    </Grid>
+                </Grid>
+            </Grid>
+            <hr
+                className={classes.divisionLine}
+            />
         </Grid>
 
 
