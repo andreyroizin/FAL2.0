@@ -88,7 +88,7 @@ function PortForm({data, updateData, locationNumber}) {
                         >
                             {Object.keys(ListOfLanguages).map((language, index) =>
                                 <MenuItem key={index} value={language}>
-                                    {`${language} - ${ListOfLanguages[language].name}`}
+                                    {`${ListOfLanguages[language].name}-  ${language}`}
                                 </MenuItem>
                             )}
                         </Select>
@@ -283,7 +283,7 @@ function PortForm({data, updateData, locationNumber}) {
                             >
                                 {Object.keys(ListOfLanguages).map((language, index) =>
                                     <MenuItem key={index} value={language}>
-                                        {`${language} - ${ListOfLanguages[language].name}`}
+                                        {`${ListOfLanguages[language].name}-  ${language}`}
                                     </MenuItem>
                                 )}
                             </Select>
@@ -430,7 +430,7 @@ function PortForm({data, updateData, locationNumber}) {
                             >
                                 {Object.keys(ListOfLanguages).map((language, index) =>
                                     <MenuItem key={index} value={language}>
-                                        {`${language} - ${ListOfLanguages[language].name}`}
+                                        {`${ListOfLanguages[language].name}-  ${language}`}
                                     </MenuItem>
                                 )}
                             </Select>
@@ -633,7 +633,7 @@ function PortForm({data, updateData, locationNumber}) {
                             >
                                 {Object.keys(ListOfLanguages).map((language, index) =>
                                     <MenuItem key={index} value={language}>
-                                        {`${language} - ${ListOfLanguages[language].name}`}
+                                        {`${ListOfLanguages[language].name}-  ${language}`}
                                     </MenuItem>
                                 )}
                             </Select>
