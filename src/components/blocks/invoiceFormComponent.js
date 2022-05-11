@@ -15,7 +15,7 @@ import ListOfCountries from '../../data/countries'
 import ListOfCurrencies from '../../data/currencies'
 import ReactDataGrid from "react-data-grid";
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
-import countryCodes from "../../functions/countryCodes";
+import countryCodes from "../../functions/list_getters/countryCodes";
 import {Editors} from "react-data-grid-addons";
 
 const useStyles = makeStyles((theme) => ({

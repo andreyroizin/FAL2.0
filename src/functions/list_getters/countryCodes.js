@@ -1,4 +1,4 @@
-const countryCodes = require("../data/countries")
+const countryCodes = require("../../data/countries")
 
 export function getCountryCodes() {
     return Object.keys(countryCodes);

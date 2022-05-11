@@ -1,4 +1,4 @@
-import countryCodes from "../countryCodes";
+import countryCodes from "../list_getters/countryCodes";
 
 const readPassengersXML = (passengers, xml) => {
     let passengerList = xml.getElementsByTagName('PassengerList');

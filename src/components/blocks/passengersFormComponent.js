@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import {Editors} from 'react-data-grid-addons';
 import datePicker from "../pickers/datePicker";
-import countryCodes from "../../functions/countryCodes";
+import countryCodes from "../../functions/list_getters/countryCodes";
 import ListOfPorts from '../../config/JSON/listOfPorts'
 import AddIcon from '@material-ui/icons/Add';
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';

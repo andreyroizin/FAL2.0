@@ -1,7 +1,7 @@
 import readXlsxFile from 'read-excel-file'
 import moment from "moment";
 import data from '../../config/consts/defaultDataConst'
-import countryCodes from "../countryCodes";
+import countryCodes from "../list_getters/countryCodes";
 import listOfPortsConst from "../../config/JSON/listOfPorts";
 
 function readXLSPassengers(file, onSave) {

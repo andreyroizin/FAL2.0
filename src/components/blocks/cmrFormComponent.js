@@ -8,14 +8,15 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select'
 import '@date-io/date-fns';
 import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import DeleteIcon from '@material-ui/icons/Delete';
-import AddIcon from '@material-ui/icons/Add';
-import ListOfPurposesOfCalls from '../../config/consts/listOfPurposesOfCallsConst';
-import ListOfPorts from '../../config/JSON/listOfPorts'
 import ListOfLanguages from "../../data/languages";
 import ListOfCountries from "../../data/countries";
+import {Editors} from "react-data-grid-addons";
+import documentTypes from "../../functions/list_getters/documentTypesGetter";
+import countryCodes from "../../functions/list_getters/countryCodes";
+import ReactDataGrid from "react-data-grid";
+import Button from "@material-ui/core/Button";
+import AddIcon from "@material-ui/icons/Add";
+import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -48,11 +49,43 @@ const useStyles = makeStyles((theme) => ({
         marginTop:"30px"
     }
 }));
+const {DropDownEditor} = Editors;
+const documentTypesList = documentTypes.getDocumentsWithTypes();
+const DocumentTypesEditor = <DropDownEditor options={documentTypesList}/>;
 
+const documentsAttachedRows = [
+    {key: "NR", name: "NR", editable: false, width: 50},
+    {key: "Type", name: "Type", editable: true, editor: DocumentTypesEditor, width: 150},
+    {key: "Remarks", name: "Remarks", editable: true, width: 150},
+    // {key: "Net_weight", name: "Net weight", editable: true, width: 250},
+];
 
 function PortForm({data, updateData, locationNumber}) {
     const classes = useStyles();
     const emptyDiv = <div className={classes.formControlNoMargin} style={{height: '0px'}}/>
+
+    function addRowDocumentsAttached() {
+        console.log("adding row");
+        let number = data.documentsAttached.length + 1
+        let row = {NR: number}
+        data.documentsAttached.push(row);
+        updateData(data)
+    }
+
+    function deleteRowDocumentsAttached() {
+        data.documentsAttached.pop();
+        updateData(data)
+    }
+
+    function onGridRowsUpdatedDocumentsAttached({fromRow, toRow, updated}) {
+
+        const documentsAttached = data.documentsAttached.slice();
+        for (let i = fromRow; i <= toRow; i++) {
+            documentsAttached[i] = {...documentsAttached[i], ...updated};
+        }
+        data.documentsAttached = documentsAttached;
+        updateData(data)
+    }
 
     return <>
         <Typography variant="h3" component="h3" gutterBottom>
@@ -846,6 +879,16 @@ function PortForm({data, updateData, locationNumber}) {
                     <Typography variant="h5" component="h5" gutterBottom align="center">
                         Documents attached
                     </Typography>
+                    <ReactDataGrid
+                        columns={documentsAttachedRows}
+                        rowGetter={i => data.documentsAttached[i]}
+                        rowsCount={data.documentsAttached.length}
+                        onGridRowsUpdated={onGridRowsUpdatedDocumentsAttached}
+                        enableCellSelect={true}
+
+                    />
+                    <Button variant="primary" startIcon={<AddIcon/>} onClick={addRowDocumentsAttached}>Add row</Button>
+                    <Button variant="primary" startIcon={<DeleteOutlineIcon/>} onClick={deleteRowDocumentsAttached}>Delete row</Button>
                 </Grid>
             </Grid>
             <hr

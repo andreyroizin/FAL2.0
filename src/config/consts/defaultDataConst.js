@@ -2,6 +2,9 @@
 export default {
     cmr: {
         date_of_document:'',
+        documentsAttached: [
+            {"NR": 1}
+        ],
         },
 
     invoice: {
