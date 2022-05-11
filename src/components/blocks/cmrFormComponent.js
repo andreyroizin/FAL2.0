@@ -66,7 +66,9 @@ const consignmentRows = [
     {key: "Gross_weight", name: "Gross weight", editable: false},
     {key: "Volume", name: "Volume", editable: true, editor: DocumentTypesEditor},
     {key: "Nature_of_goods", name: "Nature of the goods", editable: true},
-    {key: "Number_of_packages", name: "Number of packages", editable: true,}
+    {key: "Number_of_packages", name: "Number of packages", editable: true},
+    {key: "Method_of_paсking", name: "Method of paсking", editable: true},
+    {key: "Marks_and_Nos", name: "Marks and Nos.", editable: true}
 ];
 
 function PortForm({data, updateData, locationNumber}) {
