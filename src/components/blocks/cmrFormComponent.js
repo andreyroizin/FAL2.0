@@ -17,6 +17,7 @@ import ReactDataGrid from "react-data-grid";
 import Button from "@material-ui/core/Button";
 import AddIcon from "@material-ui/icons/Add";
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
+import datePicker from "../pickers/datePicker";
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -54,10 +55,10 @@ const documentTypesList = documentTypes.getDocumentsWithTypes();
 const DocumentTypesEditor = <DropDownEditor options={documentTypesList}/>;
 
 const documentsAttachedRows = [
-    {key: "NR", name: "NR", editable: false, width: 50},
-    {key: "Type", name: "Type", editable: true, editor: DocumentTypesEditor, width: 150},
-    {key: "Remarks", name: "Remarks", editable: true, width: 150},
-    // {key: "Net_weight", name: "Net weight", editable: true, width: 250},
+    {key: "NR", name: "NR", editable: false},
+    {key: "Type", name: "Type", editable: true, editor: DocumentTypesEditor},
+    {key: "Remarks", name: "Remarks", editable: true},
+    {key: "Date", name: "Date", editable: true, editor: datePicker}
 ];
 
 function PortForm({data, updateData, locationNumber}) {
