@@ -974,6 +974,59 @@ function PortForm({data, updateData, locationNumber}) {
 
                 />
             </Grid>
+            <hr
+                className={classes.divisionLine}
+            />
+            <Grid container justify={'space-between'} style={{marginTop: '30px'}}>
+
+                <FormControl
+                    variant="outlined"
+                    className={classes.formControlNoMargin}
+                >
+                    <InputLabel id="departure-arrival-label">Established in</InputLabel>
+
+                    <Select
+                        labelId="departure-arrival-label"
+                        value={data.seller_country_code}
+                        onChange={(e) => {
+                            updateData({seller_country_code: e.target.value})
+                        }}
+                    >
+                        {Object.keys(ListOfCountries).map((country, index) =>
+                            <MenuItem key={index} value={country}>
+                                {`${country} - ${ListOfCountries[country]}`}
+                            </MenuItem>
+                        )}
+                    </Select>
+                </FormControl>
+
+                <TextField
+                    label="Truck:"
+                    value={data.seller_country_subdivision_name}
+                    onChange={(e) => updateData({seller_country_subdivision_name: e.target.value})}
+                    variant="outlined"
+                />
+
+
+                <TextField
+                    label="Trailer:"
+                    value={data.seller_country_subdivision_name}
+                    onChange={(e) => updateData({seller_country_subdivision_name: e.target.value})}
+                    variant="outlined"
+                />
+            </Grid>
+            <Grid container justify={'space-between'} style={{marginTop: '30px'}}>
+
+                <TextField
+                    label="Sender's instruction:"
+                    value={data.seller_country_subdivision_name}
+                    onChange={(e) => updateData({seller_country_subdivision_name: e.target.value})}
+                    variant="outlined"
+                    multiline
+                    fullWidth
+                    rowsMax={4}
+                />
+            </Grid>
         </Grid>
 
 
