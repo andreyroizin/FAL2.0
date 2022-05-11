@@ -56,9 +56,17 @@ const DocumentTypesEditor = <DropDownEditor options={documentTypesList}/>;
 
 const documentsAttachedRows = [
     {key: "NR", name: "NR", editable: false},
-    {key: "Type", name: "Type", editable: true, editor: DocumentTypesEditor},
+    {key: "Type", name: "Type", editable: true,},
     {key: "Remarks", name: "Remarks", editable: true},
     {key: "Date", name: "Date", editable: true, editor: datePicker}
+];
+
+const consignmentRows = [
+    {key: "NR", name: "NR", editable: false},
+    {key: "Gross_weight", name: "Gross weight", editable: false},
+    {key: "Volume", name: "Volume", editable: true, editor: DocumentTypesEditor},
+    {key: "Nature_of_goods", name: "Nature of the goods", editable: true},
+    {key: "Number_of_packages", name: "Number of packages", editable: true,}
 ];
 
 function PortForm({data, updateData, locationNumber}) {
@@ -66,7 +74,6 @@ function PortForm({data, updateData, locationNumber}) {
     const emptyDiv = <div className={classes.formControlNoMargin} style={{height: '0px'}}/>
 
     function addRowDocumentsAttached() {
-        console.log("adding row");
         let number = data.documentsAttached.length + 1
         let row = {NR: number}
         data.documentsAttached.push(row);
@@ -85,6 +92,28 @@ function PortForm({data, updateData, locationNumber}) {
             documentsAttached[i] = {...documentsAttached[i], ...updated};
         }
         data.documentsAttached = documentsAttached;
+        updateData(data)
+    }
+
+    function addRowConsignment() {
+        let number = data.consignment.length + 1
+        let row = {NR: number}
+        data.consignment.push(row);
+        updateData(data)
+    }
+
+    function deleteRowConsignment() {
+        data.consignment.pop();
+        updateData(data)
+    }
+
+    function onGridRowsUpdatedConsignment({fromRow, toRow, updated}) {
+
+        const consignment = data.consignment.slice();
+        for (let i = fromRow; i <= toRow; i++) {
+            consignment[i] = {...consignment[i], ...updated};
+        }
+        data.consignment = consignment;
         updateData(data)
     }
 
@@ -929,6 +958,20 @@ function PortForm({data, updateData, locationNumber}) {
             <hr
                 className={classes.divisionLine}
             />
+            <Typography variant="h5" component="h5" gutterBottom style={{marginTop: '30px'}}>
+                Consignment
+            </Typography>
+
+            <Grid container justify={'space-between'} style={{marginTop: '30px'}}>
+                <ReactDataGrid
+                    columns={consignmentRows}
+                    rowGetter={i => data.consignment[i]}
+                    rowsCount={data.consignment.length}
+                    onGridRowsUpdated={onGridRowsUpdatedConsignment}
+                    enableCellSelect={true}
+
+                />
+            </Grid>
         </Grid>
 
 

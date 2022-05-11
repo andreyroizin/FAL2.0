@@ -5,6 +5,9 @@ export default {
         documentsAttached: [
             {"NR": 1}
         ],
+        consignment: [
+            {"NR": 1}
+        ],
         },
 
     invoice: {
