@@ -279,8 +279,8 @@ function PortForm({data, updateData, locationNumber}) {
                 <Grid container justify={'space-between'}style={{marginTop: '10px'}}>
                     <TextField
                         label="Number of document:"
-                        value={data.invoice_id}
-                        onChange={(e) => updateData({invoice_id: e.target.value})}
+                        value={data.cmr_id}
+                        onChange={(e) => updateData({cmr_id: e.target.value})}
                         variant="outlined"
                     />
 
@@ -302,8 +302,8 @@ function PortForm({data, updateData, locationNumber}) {
                 <Grid container justify={'space-between'}style={{marginTop: '30px'}}>
                     <TextField
                         label="Remarks:"
-                        value={data.invoice_id}
-                        onChange={(e) => updateData({invoice_id: e.target.value})}
+                        value={data.remarks}
+                        onChange={(e) => updateData({remarks: e.target.value})}
                         fullWidth
                         multiline
                         rowsMax={2}

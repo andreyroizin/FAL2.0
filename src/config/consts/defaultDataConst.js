@@ -1,6 +1,8 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
     cmr: {
+        cmr_id :'',
+        remarks :'',
         date_of_document:'',
         documentsAttached: [
             {"NR": 1}
