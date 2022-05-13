@@ -77,9 +77,41 @@ const generateCMR = (cmr) => {
                 ]}
         ]});
 
+    let Carrier = [];
+
+    Carrier.push({ID: cmr.carrier_id});
+    Carrier.push({Name: cmr.carrier_name});
+    Carrier.push({LanguageCode: cmr.carrier_language_code});
+
+    Carrier.push({DefinedContractDetails: [
+            {PersonName:cmr.carrier_person_name},
+            {MobileTelephone:[
+                    {CompleteNumber: cmr.carrier_complete_number},
+                ]},
+            {EmailAddress: [
+                    {URI: cmr.carrier_email}
+                ]}
+        ]});
+
+    Carrier.push({PostalAddress: [
+            {Postcode: cmr.carrier_postcode},
+            {StreetName: cmr.carrier_street_name},
+            {CityName: cmr.carrier_city_name},
+            {CountryCode: cmr.carrier_country_code},
+            {ContryName: listOfCountries[cmr.carrier_country_code]},
+            {CountrySubDivisionName: cmr.carrier_country_subdivision_name},
+        ]});
+    Carrier.push({TaxRegistration:[
+            {ID:cmr.carrier_tax_id},
+            {RegisteredTax:[
+                    {TypeCode:cmr.carrier_tax_type_code},
+                ]}
+        ]});
+
 
     RoadConsignment.push({Sender:Sender});
     RoadConsignment.push({Consignee:Consignee});
+    RoadConsignment.push({Carrier:Carrier});
 
 
     let cmrXML = {
