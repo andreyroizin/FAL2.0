@@ -10,6 +10,9 @@ const generateCMR = (cmr) => {
     eCMRHeaderDetails.push({ContractualRemarks:cmr.remarks});
 
     let RoadConsignment = [];
+    RoadConsignment.push({GrossWeight:cmr.gross_weight});
+    RoadConsignment.push({GrossVolume:cmr.volume});
+    RoadConsignment.push({CODAmount:cmr.cod_amount});
 
     let cmrXML = {
         MMTCCBDAeCMRMessage:[

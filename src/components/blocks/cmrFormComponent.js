@@ -935,14 +935,14 @@ function PortForm({data, updateData, locationNumber}) {
 
                         <TextField
                             label="Gross weight (total):"
-                            value={data.invoice_id}
-                            onChange={(e) => updateData({invoice_id: e.target.value})}
+                            value={data.gross_weight}
+                            onChange={(e) => updateData({gross_weight: e.target.value})}
                             variant="outlined"
                         />
                         <TextField
                             label="Volume (total):"
-                            value={data.invoice_id}
-                            onChange={(e) => updateData({invoice_id: e.target.value})}
+                            value={data.volume}
+                            onChange={(e) => updateData({volume: e.target.value})}
                             variant="outlined"
                         />
                     </Grid>
@@ -950,8 +950,8 @@ function PortForm({data, updateData, locationNumber}) {
                     <Grid container justify={'space-between'}style={{marginTop: '30px'}}>
                         <TextField
                             label="COD amount:"
-                            value={data.invoice_id}
-                            onChange={(e) => updateData({invoice_id: e.target.value})}
+                            value={data.cod_amount}
+                            onChange={(e) => updateData({cod_amount: e.target.value})}
                             variant="outlined"
                         />
                     </Grid>
