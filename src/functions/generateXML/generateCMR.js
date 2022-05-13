@@ -101,6 +101,7 @@ const generateCMR = (cmr) => {
             {ContryName: listOfCountries[cmr.carrier_country_code]},
             {CountrySubDivisionName: cmr.carrier_country_subdivision_name},
         ]});
+
     Carrier.push({TaxRegistration:[
             {ID:cmr.carrier_tax_id},
             {RegisteredTax:[
@@ -108,10 +109,42 @@ const generateCMR = (cmr) => {
                 ]}
         ]});
 
+    let SubsequentCarrier = [];
+
+    SubsequentCarrier.push({ID: cmr.sub_carrier_id});
+    SubsequentCarrier.push({Name: cmr.sub_carrier_name});
+    SubsequentCarrier.push({LanguageCode: cmr.sub_carrier_language_code});
+
+    SubsequentCarrier.push({DefinedContractDetails: [
+            {PersonName:cmr.sub_carrier_person_name},
+            {MobileTelephone:[
+                    {CompleteNumber: cmr.sub_carrier_complete_number},
+                ]},
+            {EmailAddress: [
+                    {URI: cmr.sub_carrier_email}
+                ]}
+        ]});
+
+    SubsequentCarrier.push({PostalAddress: [
+            {Postcode: cmr.sub_carrier_postcode},
+            {StreetName: cmr.sub_carrier_street_name},
+            {CityName: cmr.sub_carrier_city_name},
+            {CountryCode: cmr.sub_carrier_country_code},
+            {ContryName: listOfCountries[cmr.sub_carrier_country_code]},
+            {CountrySubDivisionName: cmr.sub_carrier_country_subdivision_name},
+        ]});
+    SubsequentCarrier.push({TaxRegistration:[
+            {ID:cmr.sub_carrier_tax_id},
+            {RegisteredTax:[
+                    {TypeCode:cmr.sub_carrier_tax_type_code},
+                ]}
+        ]});
+
 
     RoadConsignment.push({Sender:Sender});
     RoadConsignment.push({Consignee:Consignee});
     RoadConsignment.push({Carrier:Carrier});
+    RoadConsignment.push({SubsequentCarrier:SubsequentCarrier});
 
 
     let cmrXML = {
