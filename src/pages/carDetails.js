@@ -201,6 +201,10 @@ function CarDetails({history}) {
                                    createXML(data, onError, true,"invoice");
                                       handleClose();
                                     }}>Generate full invoice XML file</MenuItem>
+                                    <MenuItem onClick={() => {
+                                        createXML(data, () => {}, false,"cmr")
+                                        handleClose();
+                                    }}>Save CMR to XML (as draft)</MenuItem>
                                 </Menu>
                             </Grid>
                             <input
