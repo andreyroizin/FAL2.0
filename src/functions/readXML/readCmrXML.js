@@ -81,6 +81,11 @@ const readCmrXML = (cmr, xml) => {
    cmr.volume = xml.getElementsByTagName('GrossVolume')[0].value;
    cmr.cod_amount = xml.getElementsByTagName('CODAmount')[0].value;
 
+   cmr.established_country_code = xml.getElementsByTagName('IssueLocation')[0].children[1].value;
+   cmr.truck = xml.getElementsByTagName('StageCode')[0].value;
+   cmr.trailer = xml.getElementsByTagName('ModeCode')[0].value;
+   cmr.instruction = xml.getElementsByTagName('Description')[0].value;
+
 };
 
 export default readCmrXML;
