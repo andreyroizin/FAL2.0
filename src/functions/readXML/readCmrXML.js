@@ -91,10 +91,6 @@ const readCmrXML = (cmr, xml) => {
    for (let i = 0; i <documentsAttached.length; i++) {
 
       let document = documentsAttached[i];
-
-      console.log("document ",document)
-
-      console.log('fff ', document.children[0])
       let documentToSave = {
          NR: document.children[1].value,
          TypeCode: documentTypes.getDocumentWithCodeByCode(document.children[0].value),
@@ -103,6 +99,30 @@ const readCmrXML = (cmr, xml) => {
       }
 
       cmr.documentsAttached.push(documentToSave)
+
+   }
+
+   let includedConsignmentItems = xml.getElementsByTagName('IncludedConsignmentItem');
+   let transportPackages = xml.getElementsByTagName('TransportPackage');
+   cmr.consignment = []
+   for (let i = 0; i <includedConsignmentItems.length; i++) {
+
+      let item = includedConsignmentItems[i];
+
+      let transportPackage = transportPackages[i];
+
+      let consignmentToSave = {
+         NR: item.children[0].value,
+         Gross_weight: item.children[1].value,
+         Volume: item.children[2].value,
+         Nature_of_goods: item.children[3].children[0].value,
+         Number_of_packages: transportPackage.children[0].value,
+         Method_of_paсking: transportPackage.children[1].value,
+         Marks_and_Nos: transportPackage.children[2].children[0].value,
+      };
+
+
+      cmr.consignment.push(consignmentToSave)
 
    }
 
