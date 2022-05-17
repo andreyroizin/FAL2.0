@@ -8,7 +8,15 @@ const generateCMR = (cmr) => {
     eCMRHeaderDetails.push({eCMRID:cmr.cmr_id});
     eCMRHeaderDetails.push({eCMRIssueDate:cmr.date_of_document});
     eCMRHeaderDetails.push({ContractualRemarks:cmr.remarks});
-
+    eCMRHeaderDetails.push({AdditionalParticularNote:[
+            {ContentText:cmr.additional_note_1}
+        ]});
+    eCMRHeaderDetails.push({AdditionalParticularNote:[
+            {ContentText:cmr.additional_note_2}
+        ]});
+    eCMRHeaderDetails.push({AdditionalParticularNote:[
+            {ContentText:cmr.additional_note_3}
+        ]});
     let RoadConsignment = [];
     RoadConsignment.push({GrossWeight:cmr.gross_weight});
     RoadConsignment.push({GrossVolume:cmr.volume});

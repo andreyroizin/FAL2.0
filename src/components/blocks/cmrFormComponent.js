@@ -881,14 +881,14 @@ function PortForm({data, updateData, locationNumber}) {
 
                         <TextField
                             label="Reservation/observation:"
-                            value={data.invoice_id}
-                            onChange={(e) => updateData({invoice_id: e.target.value})}
+                            value={data.additional_note_1}
+                            onChange={(e) => updateData({additional_note_1: e.target.value})}
                             variant="outlined"
                         />
                         <TextField
                             label="Reservation/observation:"
-                            value={data.invoice_id}
-                            onChange={(e) => updateData({invoice_id: e.target.value})}
+                            value={data.additional_note_2}
+                            onChange={(e) => updateData({additional_note_2: e.target.value})}
                             variant="outlined"
                         />
                     </Grid>
@@ -896,8 +896,8 @@ function PortForm({data, updateData, locationNumber}) {
                     <Grid container justify={'space-between'}style={{marginTop: '30px'}}>
                         <TextField
                             label="Reservation/observation:"
-                            value={data.invoice_id}
-                            onChange={(e) => updateData({invoice_id: e.target.value})}
+                            value={data.additional_note_3}
+                            onChange={(e) => updateData({additional_note_3: e.target.value})}
                             variant="outlined"
                         />
                     </Grid>
