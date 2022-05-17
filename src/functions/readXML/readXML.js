@@ -1,6 +1,7 @@
 import XMLParser from 'react-xml-parser';
 import defaultData from '../../config/consts/defaultDataConst'
 import readInvoiceXML from "./readInvoiceXML";
+import readCmrXML from "./readCmrXML";
 import xml from "xml";
 
 function readXML(fileContent, xmlType) {
@@ -15,10 +16,7 @@ function readXML(fileContent, xmlType) {
             return invoice;
         case 'cmr':
             let cmr = defaultData.cmr;
-
-            console.log("reading cmr")
-
-            // readInvoiceXML(invoice, xml);
+            readCmrXML(cmr, xml);
             return cmr;
 
     }
