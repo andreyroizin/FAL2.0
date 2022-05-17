@@ -13,6 +13,13 @@ function readXML(fileContent, xmlType) {
 
             readInvoiceXML(invoice, xml);
             return invoice;
+        case 'cmr':
+            let cmr = defaultData.cmr;
+
+            console.log("reading cmr")
+
+            // readInvoiceXML(invoice, xml);
+            return cmr;
 
     }
     return defaultData.invoice

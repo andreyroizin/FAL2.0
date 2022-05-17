@@ -121,7 +121,6 @@ function CarDetails({history}) {
         setDownloadAnchorEl(null);
     };
 
-    console.log("All the data FROM PARENT!!", data);
     return (
         <div className={classes.root}>
             <CssBaseline/>
@@ -152,6 +151,9 @@ function CarDetails({history}) {
                                 >
                                     <MenuItem onClick={handleClose}>
                                         <label htmlFor="read-invoice-xml-file">Upload Invoice XML document</label>
+                                    </MenuItem>
+                                    <MenuItem onClick={handleClose}>
+                                        <label htmlFor="read-cmr-xml-file">Upload CMR XML document</label>
                                     </MenuItem>
                                 </Menu>
                                 <Button
@@ -237,6 +239,38 @@ function CarDetails({history}) {
                                     reader.readAsText(file);
                                 }}
                                 id="read-invoice-xml-file"
+                                type="file"
+                            />
+                            <input
+                                className={classes.uploadFile}
+                                onChange={() => {
+                                    console.log('Change!!!')
+                                    const file = document.getElementById("read-cmr-xml-file").files[0];
+                                    const reader = new FileReader();
+
+                                    reader.onload = (() => {
+                                        try {
+                                            let cmr = readXML(reader.result,'cmr');
+
+                                            let dataCopy = JSON.parse(JSON.stringify(data));
+                                            setData({
+                                                ...dataCopy, ...{
+                                                    cmr
+                                                }
+                                            });
+                                        } catch (e) {
+                                            setOpenErrorDialog({
+                                                open: true, error: {
+                                                    title: 'Error while reading XML',
+                                                    text: [e]
+                                                }
+                                            })
+                                            console.error(e);
+                                        }
+                                    })
+                                    reader.readAsText(file);
+                                }}
+                                id="read-cmr-xml-file"
                                 type="file"
                             />
                         </div>
