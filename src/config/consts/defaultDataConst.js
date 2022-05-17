@@ -63,6 +63,19 @@ export default {
         date_of_delivery:'',
         delivery_place_name:'',
         delivery_country_code:'',
+        date_of_pickup:'',
+        pickup_location_name:'',
+        pickup_country_code:'',
+        additional_note_1:'',
+        additional_note_2:'',
+        additional_note_3:'',
+        gross_weight:'',
+        volume:'',
+        cod_amount:'',
+        established_country_code:'',
+        truck:'',
+        trailer:'',
+        instruction:'',
 
         documentsAttached: [
             {"NR": 1}
