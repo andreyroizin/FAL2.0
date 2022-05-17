@@ -77,6 +77,10 @@ const readCmrXML = (cmr, xml) => {
    cmr.additional_note_2 = xml.getElementsByTagName('AdditionalParticularNote')[1].children[0].value;
    cmr.additional_note_3 = xml.getElementsByTagName('AdditionalParticularNote')[2].children[0].value;
 
+   cmr.gross_weight = xml.getElementsByTagName('GrossWeight')[0].value;
+   cmr.volume = xml.getElementsByTagName('GrossVolume')[0].value;
+   cmr.cod_amount = xml.getElementsByTagName('CODAmount')[0].value;
+
 };
 
 export default readCmrXML;
