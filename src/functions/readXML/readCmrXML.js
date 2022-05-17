@@ -19,6 +19,51 @@ const readCmrXML = (cmr, xml) => {
    cmr.sender_city_name = sender.children[4].children[2].value;
    cmr.sender_country_code = sender.children[4].children[3].value;
    cmr.sender_country_subdivision_name = sender.children[4].children[5].value;
+
+   let consignee = xml.getElementsByTagName('Consignee')[0];
+   cmr.consignee_id = consignee.children[0].value;
+   cmr.consignee_name = consignee.children[1].value;
+   cmr.consignee_language_code = consignee.children[2].value;
+   cmr.consignee_tax_id = consignee.children[5].children[0].value;
+   cmr.consignee_tax_type_code = consignee.children[5].children[1].children[0].value;
+   cmr.consignee_person_name = consignee.children[3].children[0].value;
+   cmr.consignee_complete_number = consignee.children[3].children[1].children[0].value;
+   cmr.consignee_email = consignee.children[3].children[2].children[0].value;
+   cmr.consignee_postcode = consignee.children[4].children[0].value;
+   cmr.consignee_street_name = consignee.children[4].children[1].value;
+   cmr.consignee_city_name = consignee.children[4].children[2].value;
+   cmr.consignee_country_code = consignee.children[4].children[3].value;
+   cmr.consignee_country_subdivision_name = consignee.children[4].children[5].value;
+
+   let carrier = xml.getElementsByTagName('Carrier')[0];
+   cmr.carrier_id = carrier.children[0].value;
+   cmr.carrier_name = carrier.children[1].value;
+   cmr.carrier_language_code = carrier.children[2].value;
+   cmr.carrier_tax_id = carrier.children[5].children[0].value;
+   cmr.carrier_tax_type_code = carrier.children[5].children[1].children[0].value;
+   cmr.carrier_person_name = carrier.children[3].children[0].value;
+   cmr.carrier_complete_number = carrier.children[3].children[1].children[0].value;
+   cmr.carrier_email = carrier.children[3].children[2].children[0].value;
+   cmr.carrier_postcode = carrier.children[4].children[0].value;
+   cmr.carrier_street_name = carrier.children[4].children[1].value;
+   cmr.carrier_city_name = carrier.children[4].children[2].value;
+   cmr.carrier_country_code = carrier.children[4].children[3].value;
+   cmr.carrier_country_subdivision_name = carrier.children[4].children[5].value;
+
+   let sub_carrier = xml.getElementsByTagName('SubsequentCarrier')[0];
+   cmr.sub_carrier_id = sub_carrier.children[0].value;
+   cmr.sub_carrier_name = sub_carrier.children[1].value;
+   cmr.sub_carrier_language_code = sub_carrier.children[2].value;
+   cmr.sub_carrier_tax_id = sub_carrier.children[5].children[0].value;
+   cmr.sub_carrier_tax_type_code = sub_carrier.children[5].children[1].children[0].value;
+   cmr.sub_carrier_person_name = sub_carrier.children[3].children[0].value;
+   cmr.sub_carrier_complete_number = sub_carrier.children[3].children[1].children[0].value;
+   cmr.sub_carrier_email = sub_carrier.children[3].children[2].children[0].value;
+   cmr.sub_carrier_postcode = sub_carrier.children[4].children[0].value;
+   cmr.sub_carrier_street_name = sub_carrier.children[4].children[1].value;
+   cmr.sub_carrier_city_name = sub_carrier.children[4].children[2].value;
+   cmr.sub_carrier_country_code = sub_carrier.children[4].children[3].value;
+   cmr.sub_carrier_country_subdivision_name = sub_carrier.children[4].children[5].value;
 };
 
 export default readCmrXML;
