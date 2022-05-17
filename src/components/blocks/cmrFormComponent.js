@@ -63,7 +63,7 @@ const documentsAttachedRows = [
 
 const consignmentRows = [
     {key: "NR", name: "NR", editable: false},
-    {key: "Gross_weight", name: "Gross weight", editable: false},
+    {key: "Gross_weight", name: "Gross weight", editable: true},
     {key: "Volume", name: "Volume", editable: true},
     {key: "Nature_of_goods", name: "Nature of the goods", editable: true},
     {key: "Number_of_packages", name: "Number of packages", editable: true},
@@ -974,6 +974,8 @@ function PortForm({data, updateData, locationNumber}) {
 
                 />
             </Grid>
+            <Button variant="primary" startIcon={<AddIcon/>} onClick={addRowConsignment}>Add row</Button>
+            <Button variant="primary" startIcon={<DeleteOutlineIcon/>} onClick={deleteRowConsignment}>Delete row</Button>
             <hr
                 className={classes.divisionLine}
             />

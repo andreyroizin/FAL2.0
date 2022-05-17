@@ -199,7 +199,16 @@ const generateCMR = (cmr) => {
                 {SequenceNumber:consignment_item.NR},
                 {GrossWeight:consignment_item.Gross_weight},
                 {GrossVolume:consignment_item.Volume},
+                {GoodsDescription:[{IdentificationText:consignment_item.Nature_of_goods}]}
+            ]})
+    }
 
+    for (let i = 0; i <cmr.consignment.length ; i++) {
+        let consignment_item = cmr.consignment[i];
+        RoadConsignment.push({TransportPackage: [
+                {ItemQuantity:consignment_item.Number_of_packages},
+                {TypeCode:consignment_item.Method_of_paсking},
+                {ShippingMarks:[{MarkingText:consignment_item.Marks_and_Nos}]}
             ]})
 
     }
