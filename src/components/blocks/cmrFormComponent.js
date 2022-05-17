@@ -630,9 +630,9 @@ function PortForm({data, updateData, locationNumber}) {
                             contentEditable={false}
                             className={classes.datePicker}
                             variant={'outlined'}
-                            value={correctDateTime(data.date_of_document)}
+                            value={correctDateTime(data.date_of_pickup)}
                             onChange={(e) =>
-                                updateData({date_of_document: e.target.value})}
+                                updateData({date_of_pickup: e.target.value})}
                             InputLabelProps={{
                                 shrink: true,
                             }}
@@ -640,8 +640,8 @@ function PortForm({data, updateData, locationNumber}) {
 
                         <TextField
                             label="Name:"
-                            value={data.invoice_id}
-                            onChange={(e) => updateData({invoice_id: e.target.value})}
+                            value={data.pickup_location_name}
+                            onChange={(e) => updateData({pickup_location_name: e.target.value})}
                             variant="outlined"
                         />
                     </Grid>
@@ -655,9 +655,9 @@ function PortForm({data, updateData, locationNumber}) {
 
                             <Select
                                 labelId="departure-arrival-label"
-                                value={data.seller_country_code}
+                                value={data.pickup_country_code}
                                 onChange={(e) => {
-                                    updateData({seller_country_code: e.target.value})
+                                    updateData({pickup_country_code: e.target.value})
                                 }}
                             >
                                 {Object.keys(ListOfCountries).map((country, index) =>
