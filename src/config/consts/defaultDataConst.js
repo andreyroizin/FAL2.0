@@ -60,6 +60,9 @@ export default {
         sub_carrier_city_name:'',
         sub_carrier_country_code:'',
         sub_carrier_country_subdivision_name:'',
+        date_of_delivery:'',
+        delivery_place_name:'',
+        delivery_country_code:'',
 
         documentsAttached: [
             {"NR": 1}

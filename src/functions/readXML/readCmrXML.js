@@ -64,6 +64,10 @@ const readCmrXML = (cmr, xml) => {
    cmr.sub_carrier_city_name = sub_carrier.children[4].children[2].value;
    cmr.sub_carrier_country_code = sub_carrier.children[4].children[3].value;
    cmr.sub_carrier_country_subdivision_name = sub_carrier.children[4].children[5].value;
+
+   cmr.date_of_delivery = xml.getElementsByTagName('ActualOccurrenceDateTime')[0].value;
+   cmr.delivery_place_name = xml.getElementsByTagName('ActualOccurrenceLocation')[0].children[0].value;
+   cmr.delivery_country_code = xml.getElementsByTagName('ActualOccurrenceLocation')[0].children[1].value;
 };
 
 export default readCmrXML;
