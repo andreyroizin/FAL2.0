@@ -17,6 +17,12 @@ const generateCMR = (cmr) => {
     eCMRHeaderDetails.push({AdditionalParticularNote:[
             {ContentText:cmr.additional_note_3}
         ]});
+    eCMRHeaderDetails.push({IssueLocation:[
+            {ContryName: listOfCountries[cmr.established_country_code]},
+            {CountryCode: cmr.established_country_code},
+        ]});
+
+
     let RoadConsignment = [];
     RoadConsignment.push({GrossWeight:cmr.gross_weight});
     RoadConsignment.push({GrossVolume:cmr.volume});
@@ -212,6 +218,15 @@ const generateCMR = (cmr) => {
             ]})
 
     }
+
+    RoadConsignment.push({TransportDetails:[
+            {StageCode:cmr.truck},
+            {ModeCode:cmr.trailer},
+        ]});
+
+    RoadConsignment.push({ConsignirProvidedRegulatoryFormalitiesInstructions:[
+            {Description:cmr.instruction},
+        ]});
 
 
     let cmrXML = {

@@ -989,9 +989,9 @@ function PortForm({data, updateData, locationNumber}) {
 
                     <Select
                         labelId="departure-arrival-label"
-                        value={data.seller_country_code}
+                        value={data.established_country_code}
                         onChange={(e) => {
-                            updateData({seller_country_code: e.target.value})
+                            updateData({established_country_code: e.target.value})
                         }}
                     >
                         {Object.keys(ListOfCountries).map((country, index) =>
@@ -1004,16 +1004,16 @@ function PortForm({data, updateData, locationNumber}) {
 
                 <TextField
                     label="Truck:"
-                    value={data.seller_country_subdivision_name}
-                    onChange={(e) => updateData({seller_country_subdivision_name: e.target.value})}
+                    value={data.truck}
+                    onChange={(e) => updateData({truck: e.target.value})}
                     variant="outlined"
                 />
 
 
                 <TextField
                     label="Trailer:"
-                    value={data.seller_country_subdivision_name}
-                    onChange={(e) => updateData({seller_country_subdivision_name: e.target.value})}
+                    value={data.trailer}
+                    onChange={(e) => updateData({trailer: e.target.value})}
                     variant="outlined"
                 />
             </Grid>
@@ -1021,8 +1021,8 @@ function PortForm({data, updateData, locationNumber}) {
 
                 <TextField
                     label="Sender's instruction:"
-                    value={data.seller_country_subdivision_name}
-                    onChange={(e) => updateData({seller_country_subdivision_name: e.target.value})}
+                    value={data.instruction}
+                    onChange={(e) => updateData({instruction: e.target.value})}
                     variant="outlined"
                     multiline
                     fullWidth
