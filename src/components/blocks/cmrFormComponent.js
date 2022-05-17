@@ -56,7 +56,7 @@ const DocumentTypesEditor = <DropDownEditor options={documentTypesList}/>;
 
 const documentsAttachedRows = [
     {key: "NR", name: "NR", editable: false},
-    {key: "Type", name: "Type", editable: true,},
+    {key: "TypeCode", name: "Type", editable: true,},
     {key: "Remarks", name: "Remarks", editable: true},
     {key: "Date", name: "Date", editable: true, editor: datePicker}
 ];

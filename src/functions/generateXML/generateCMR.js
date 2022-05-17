@@ -146,6 +146,17 @@ const generateCMR = (cmr) => {
     RoadConsignment.push({Carrier:Carrier});
     RoadConsignment.push({SubsequentCarrier:SubsequentCarrier});
 
+    for (let i = 0; i <cmr.documentsAttached.length ; i++) {
+        let document = cmr.documentsAttached[i];
+        RoadConsignment.push({AssociatedDocument:[
+                {TypeCode:document.TypeCode},
+                {ID:document.NR},
+                {Remarks:document.Remarks},
+                {FormattedIssueDateTime:document.Date},
+            ]})
+
+    }
+
     RoadConsignment.push({
         ConsigneeDeliveryEvent:[
             {ActualOccurrenceDateTime:cmr.date_of_delivery},
@@ -155,7 +166,7 @@ const generateCMR = (cmr) => {
                     {CountryName: listOfCountries[cmr.delivery_country_code]},
                 ]}
         ]
-    })
+    });
 
     RoadConsignment.push({
         CarrierPickUpEvent:[
@@ -166,7 +177,7 @@ const generateCMR = (cmr) => {
                     {CountryName: listOfCountries[cmr.pickup_country_code]},
                 ]}
         ]
-    })
+    });
 
 
     let cmrXML = {
