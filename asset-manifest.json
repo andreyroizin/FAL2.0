@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.js": "/FAL2.0/static/js/main.1108ced8.chunk.js",
-    "main.js.map": "/FAL2.0/static/js/main.1108ced8.chunk.js.map",
+    "main.js": "/FAL2.0/static/js/main.f93bbef4.chunk.js",
+    "main.js.map": "/FAL2.0/static/js/main.f93bbef4.chunk.js.map",
     "runtime-main.js": "/FAL2.0/static/js/runtime-main.a2e6c010.js",
     "runtime-main.js.map": "/FAL2.0/static/js/runtime-main.a2e6c010.js.map",
     "static/css/2.4bd8e119.chunk.css": "/FAL2.0/static/css/2.4bd8e119.chunk.css",
-    "static/js/2.fc77360c.chunk.js": "/FAL2.0/static/js/2.fc77360c.chunk.js",
-    "static/js/2.fc77360c.chunk.js.map": "/FAL2.0/static/js/2.fc77360c.chunk.js.map",
+    "static/js/2.f40c7140.chunk.js": "/FAL2.0/static/js/2.f40c7140.chunk.js",
+    "static/js/2.f40c7140.chunk.js.map": "/FAL2.0/static/js/2.f40c7140.chunk.js.map",
     "index.html": "/FAL2.0/index.html",
     "static/css/2.4bd8e119.chunk.css.map": "/FAL2.0/static/css/2.4bd8e119.chunk.css.map",
-    "static/js/2.fc77360c.chunk.js.LICENSE.txt": "/FAL2.0/static/js/2.fc77360c.chunk.js.LICENSE.txt"
+    "static/js/2.f40c7140.chunk.js.LICENSE.txt": "/FAL2.0/static/js/2.f40c7140.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.a2e6c010.js",
     "static/css/2.4bd8e119.chunk.css",
-    "static/js/2.fc77360c.chunk.js",
-    "static/js/main.1108ced8.chunk.js"
+    "static/js/2.f40c7140.chunk.js",
+    "static/js/main.f93bbef4.chunk.js"
   ]
 }
