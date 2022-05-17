@@ -1,4 +1,4 @@
-import countryCodes from "../list_getters/countryCodes";
+import documentTypes from "../list_getters/documentTypesGetter";
 
 const readCmrXML = (cmr, xml) => {
    cmr.cmr_id = xml.getElementsByTagName('eCMRID')[0].value;
@@ -85,6 +85,26 @@ const readCmrXML = (cmr, xml) => {
    cmr.truck = xml.getElementsByTagName('StageCode')[0].value;
    cmr.trailer = xml.getElementsByTagName('ModeCode')[0].value;
    cmr.instruction = xml.getElementsByTagName('Description')[0].value;
+
+   let documentsAttached = xml.getElementsByTagName('AssociatedDocument');
+   cmr.documentsAttached = []
+   for (let i = 0; i <documentsAttached.length; i++) {
+
+      let document = documentsAttached[i];
+
+      console.log("document ",document)
+
+      console.log('fff ', document.children[0])
+      let documentToSave = {
+         NR: document.children[1].value,
+         TypeCode: documentTypes.getDocumentWithCodeByCode(document.children[0].value),
+         Remarks: document.children[2].value,
+         Date: document.children[3].value,
+      }
+
+      cmr.documentsAttached.push(documentToSave)
+
+   }
 
 };
 
