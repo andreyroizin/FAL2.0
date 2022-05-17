@@ -56,7 +56,7 @@ const DocumentTypesEditor = <DropDownEditor options={documentTypesList}/>;
 
 const documentsAttachedRows = [
     {key: "NR", name: "NR", editable: false},
-    {key: "TypeCode", name: "Type", editable: true,},
+    {key: "TypeCode", name: "Type", editable: true, editor: DocumentTypesEditor},
     {key: "Remarks", name: "Remarks", editable: true},
     {key: "Date", name: "Date", editable: true, editor: datePicker}
 ];
@@ -64,7 +64,7 @@ const documentsAttachedRows = [
 const consignmentRows = [
     {key: "NR", name: "NR", editable: false},
     {key: "Gross_weight", name: "Gross weight", editable: false},
-    {key: "Volume", name: "Volume", editable: true, editor: DocumentTypesEditor},
+    {key: "Volume", name: "Volume", editable: true},
     {key: "Nature_of_goods", name: "Nature of the goods", editable: true},
     {key: "Number_of_packages", name: "Number of packages", editable: true},
     {key: "Method_of_paсking", name: "Method of paсking", editable: true},

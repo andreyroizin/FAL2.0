@@ -156,8 +156,14 @@ const generateCMR = (cmr) => {
 
     for (let i = 0; i <cmr.documentsAttached.length ; i++) {
         let document = cmr.documentsAttached[i];
+
+        let documentTypeCode = ''
+        if (document.TypeCode && document.TypeCode !== '') {
+            let typeCode = document.TypeCode.split('- ');
+            documentTypeCode = typeCode[1];
+        }
         RoadConsignment.push({AssociatedDocument:[
-                {TypeCode:document.TypeCode},
+                {TypeCode:documentTypeCode},
                 {ID:document.NR},
                 {Remarks:document.Remarks},
                 {FormattedIssueDateTime:document.Date},
@@ -186,6 +192,17 @@ const generateCMR = (cmr) => {
                 ]}
         ]
     });
+
+    for (let i = 0; i <cmr.consignment.length ; i++) {
+        let consignment_item = cmr.consignment[i];
+        RoadConsignment.push({IncludedConsignmentItem: [
+                {SequenceNumber:consignment_item.NR},
+                {GrossWeight:consignment_item.Gross_weight},
+                {GrossVolume:consignment_item.Volume},
+
+            ]})
+
+    }
 
 
     let cmrXML = {
