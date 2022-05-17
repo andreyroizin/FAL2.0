@@ -146,6 +146,17 @@ const generateCMR = (cmr) => {
     RoadConsignment.push({Carrier:Carrier});
     RoadConsignment.push({SubsequentCarrier:SubsequentCarrier});
 
+    RoadConsignment.push({
+        ConsigneeDeliveryEvent:[
+            {ActualOccurrenceDateTime:cmr.date_of_delivery},
+            {ActualOccurrenceLocation:[
+                    {Name:cmr.delivery_place_name},
+                    {CountryCode: cmr.delivery_country_code},
+                    {CountryName: listOfCountries[cmr.delivery_country_code]},
+                ]}
+        ]
+    })
+
 
     let cmrXML = {
         MMTCCBDAeCMRMessage:[
