@@ -9,39 +9,26 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
-import ShipFormComponent from "../components/blocks/shipFormComponent";
-import PortForm from "../components/blocks/portFormComponent";
-import VoyageForm from "../components/blocks/voyageFormComponent";
-import CrewForm from "../components/blocks/crewFormComponent";
 import Button from '@material-ui/core/Button';
 import {config} from "../config/shipDetailsConfig";
 import defaultDataConst from "../config/consts/defaultDataConst";
 import listOfOptionsConst from "../config/consts/listOfOptionsConst";
 import readXML from "../functions/readXML/readXML";
 import {makeStyles} from "@material-ui/core/styles";
-import readXLS from "../functions/readExcel/readXLSParent";
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import GetAppIcon from '@material-ui/icons/GetApp';
-import PassengersForm from "../components/blocks/passengersFormComponent";
 import createXML from "../functions/generateXML/generateXML";
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import HealthFormComponent from "../components/blocks/healthFormComponent";
-import ShipStoresForm from "../components/blocks/shipStoresFormComponent";
-import CrewEffectsForm from "../components/blocks/crewEffectsFormComponent";
-import CargoForm from "../components/blocks/cargoFormComponent";
-import SecurityFormComponent from "../components/blocks/securityFormComponent";
-import DPGForm from "../components/blocks/dpgFormComponent";
-import WasteFormComponent from "../components/blocks/WasteFormComponent";
 import _ from 'underscore'
-import MainPageInfo from './../config/JSON/shipCallsData.json'
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import CMRFormComponent from "../components/blocks/cmrFormComponent";
 import InvoiceFormComponent from "../components/blocks/invoiceFormComponent";
+
 const listOfOptions = listOfOptionsConst;
 
 

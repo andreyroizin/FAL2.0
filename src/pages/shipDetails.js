@@ -37,7 +37,7 @@ import SecurityFormComponent from "../components/blocks/securityFormComponent";
 import DPGForm from "../components/blocks/dpgFormComponent";
 import WasteFormComponent from "../components/blocks/WasteFormComponent";
 import _ from 'underscore'
-import MainPageInfo from './../config/JSON/shipCallsData.json'
+import MainPageInfo from './../config/JSON/documentCallsData.json'
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 

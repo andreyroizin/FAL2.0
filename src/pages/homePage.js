@@ -6,10 +6,9 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
 import {DataGrid} from '@material-ui/data-grid';
-import shipCallsData from './../config/JSON/shipCallsData.json'
+import documentCallsData from './../config/JSON/documnetCallsData'
 
 
-console.log('COlumn data: ', shipCallsData)
 const columns = [
     {field: 'id', headerName: 'ID', width: 100},
     {
@@ -82,7 +81,7 @@ export default function HomePage({history}) {
 
                     <div style={{width: '905px', height: '300px', align:'center'}}>
                         <DataGrid
-                            rows={shipCallsData}
+                            rows={documentCallsData}
                             columns={columns}
                             pageSize={4}
                             onRowClick={(e) => {
