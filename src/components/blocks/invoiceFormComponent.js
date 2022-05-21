@@ -124,13 +124,18 @@ function PortForm({data, updateData, locationNumber}) {
                 variant="outlined"
             />
 
+
             <TextField
                 label="Name:"
                 value={data.seller_name}
                 onChange={(e) => updateData({seller_name: e.target.value})}
                 variant="outlined"
-                style={{width: '59%'}}
+                // style={{width: '59%'}}
+                // multiline
+                // rowsMax={2}
+                style={{width: 'calc(90% - 400px)'}}
             />
+            {/*{emptyDiv}*/}
 
 
         </Grid>
@@ -279,7 +284,8 @@ function PortForm({data, updateData, locationNumber}) {
                 value={data.buyer_name}
                 onChange={(e) => updateData({buyer_name: e.target.value})}
                 variant="outlined"
-                style={{width: '59%'}}
+                // style={{width: '59%'}}
+                style={{width: 'calc(90% - 400px)'}}
             />
 
 
