@@ -12,7 +12,6 @@ import ListOfLanguages from "../../data/languages";
 import ListOfCountries from "../../data/countries";
 import {Editors} from "react-data-grid-addons";
 import documentTypes from "../../functions/list_getters/documentTypesGetter";
-import countryCodes from "../../functions/list_getters/countryCodes";
 import ReactDataGrid from "react-data-grid";
 import Button from "@material-ui/core/Button";
 import AddIcon from "@material-ui/icons/Add";

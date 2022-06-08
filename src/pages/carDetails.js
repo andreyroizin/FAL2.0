@@ -114,11 +114,11 @@ function CarDetails({history}) {
             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar>
                     <Grid container justify={'space-between'}>
-                        <Typography variant="h6">
-                            Прототип Українського Морського Єдиного Вікна<br/>Ukrainian Maritime Single Window Prototype
+                        <Typography variant="h4">
+                            CBM Converter Prototype
                         </Typography>
                         <div>
-                            <Grid container justify={'flex-end'} style={{marginTop: '12px'}}>
+                            <Grid container justify={'flex-end'} style={{marginTop: '5px'}}>
                                 <Button
                                     aria-controls="upload-menu"
                                     style={{marginRight: '30px'}}

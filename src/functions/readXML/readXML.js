@@ -20,7 +20,6 @@ function readXML(fileContent, xmlType) {
             return cmr;
 
     }
-    return defaultData.invoice
 
 }
 

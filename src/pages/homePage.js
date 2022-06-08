@@ -62,20 +62,14 @@ export default function HomePage({history}) {
             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar>
                     <Grid container justify={'space-between'}>
-                        <Typography variant="h6">
-                            Прототип Українського Морського Єдиного Вікна<br/>Ukrainian Maritime Single Window Prototype
+                        <Typography variant="h4">
+                            CBM Converter Prototype
                         </Typography>
                     </Grid>
                 </Toolbar>
             </AppBar>
             <main className={classes.content}>
                 <Toolbar/>
-
-                <Grid container style={{marginTop: '10px'}} justify={'center'}>
-                    <Typography variant="h5">
-                        Перелік суднозаходів / Ship calls
-                    </Typography>
-                </Grid>
 
                 <Grid container style={{marginTop: '30px'}} justify={'center'}>
 
@@ -96,10 +90,7 @@ export default function HomePage({history}) {
                     <Typography style={{width: '900px'}} variant="p">
                         Prototype is aimed to help public authorities implement electronic information exchange systems.
                         <br/><br/>
-                        Prototype implements the Annex to the Convention on the Facilitation of International Navigation
-                        of 1965, approved by International Maritime Organization Resolution FAL.12 (40), Standard
-                        1.3bis, based on UN/CEFACT MMT reference data model (RDM) and refers to the European Union’s
-                        Maritime Single Window Environment (of the European Maritime Safety Agency, EMSA) requirements.
+                        Cross Border Management Converter Prototype implements transformation of the trade and transport documents, harmonized with UN/CEFACT ISCDM and MMT RDM to the WCO DM and EU CDM datasets based on the UN/CEFACT CBM RDM.
                     </Typography>
                 </Grid>
             </main>
